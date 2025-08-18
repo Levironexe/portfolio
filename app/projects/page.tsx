@@ -113,7 +113,7 @@ const page = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-neutral-100 w-full min-h-screen p-[calc(10vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
+      className="bg-neutral-100 w-full min-h-screen py-[calc(10vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
     >
       <div
         className={`absolute w-3 h-3 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
@@ -127,7 +127,7 @@ const page = () => {
 
       <div className="flex flex-col items-center"></div>
       {contents.map((content, index) => (
-        <div key={index} className="max-w-3xl mx-auto flex flex-col gap-2">
+        <div key={index} className="max-w-5xl mx-auto flex flex-col gap-2 px-6 md:px-8 lg:px-10">
           <div
             className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
                             ${expandedItems.has(index) && "bg-neutral-200"}`}
