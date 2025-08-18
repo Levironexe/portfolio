@@ -5,12 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
-interface PersistentNavbarProps {
-  params?: { [key: string]: string | string[] | undefined }
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
-const PersistentNavbar = ({ params, searchParams }: PersistentNavbarProps) => {
+const PersistentNavbar = () => {
   const [progressValue, setProgressValue] = useState<string>("0");
   const pathname = usePathname();
   const currentRoute = pathname.split('/')[1] || '';

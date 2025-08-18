@@ -31,19 +31,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
-  searchParams,
 }: Readonly<{
   children: React.ReactNode;
-  params?: { [key: string]: string | string[] | undefined };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} antialiased`}
       >
-        <PersistentNavbar params={params} searchParams={searchParams} />
+        <PersistentNavbar />
         {children}
       </body>
     </html>
