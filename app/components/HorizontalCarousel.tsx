@@ -20,7 +20,20 @@ const [isLoadedImmediate, setIsLoadedImmediate] = useState(false);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
+  useEffect(() => {
+    console.log("rerendered");
+  })
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+    
+    window.onbeforeunload = handleBeforeUnload;
+    
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, []);
   const x = useTransform(scrollYProgress, [0, 1], ["-10.416%", "-64.9%"]);
   const xIndicator = useTransform(scrollYProgress, [0, 1], ["0%", "425%"]);
 

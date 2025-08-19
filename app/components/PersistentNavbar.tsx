@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 const PersistentNavbar = () => {
-  const [progressValue, setProgressValue] = useState<string>("0");
+  const progressVal = useMotionValue("0");
   const pathname = usePathname();
   const currentRoute = pathname.split('/')[1] || '';
   const { scrollYProgress } = useScroll();
@@ -31,7 +31,6 @@ const PersistentNavbar = () => {
     const elementIndex = redElementIndices[cardIndex];
     return (elementIndex / (totalElements - 1)) * totalRange;
   };
-  console.log('Position 0:', calculatePosition(0)); // Should be 0
 
   // Define static positions for routes
   const getXPosition = () => {
@@ -54,7 +53,7 @@ const PersistentNavbar = () => {
   const getProgressPercentage = (position: number) => {
     return ((position / totalRange) * 100).toFixed(1);
   };
-
+  console.log('rerendered');
   // Handle progress value updates
   useEffect(() => {
     if (currentRoute === '') {
@@ -62,21 +61,21 @@ const PersistentNavbar = () => {
       const unsubscribe = xIndicator.onChange((latest) => {
         const numericValue = parseFloat(latest.replace('%', ''));
         const percent = ((numericValue / totalRange) * 100).toFixed(1);
-        setProgressValue(percent);
+        progressVal.set(percent);
       });
       return unsubscribe;
     } else {
       // Static routes: set precise progress
       if (currentRoute === 'education') {
-        setProgressValue(getProgressPercentage(calculatePosition(1))); // 17.6%
+        progressVal.set(getProgressPercentage(calculatePosition(1))); // 17.6%
       } else if (currentRoute === 'skills-and-achievements') {
-        setProgressValue(getProgressPercentage(calculatePosition(2))); // 35.3%
+        progressVal.set(getProgressPercentage(calculatePosition(2))); // 35.3%
       } else if (currentRoute === 'projects') {
-        setProgressValue(getProgressPercentage(calculatePosition(3))); // 52.9%
+        progressVal.set(getProgressPercentage(calculatePosition(3))); // 52.9%
       } else if (currentRoute === 'contact') {
-        setProgressValue(getProgressPercentage(calculatePosition(5))); // 88.2%
+        progressVal.set(getProgressPercentage(calculatePosition(5))); // 88.2%
       } else {
-        setProgressValue("0.0");
+        progressVal.set("0");
       }
     }
   }, [xIndicator, currentRoute]);
@@ -134,7 +133,7 @@ const PersistentNavbar = () => {
           </div>
           {currentRoute === '' && (
             <div className="absolute left-full ml-2 text-sm font-light flex items-center h-[21.875px] text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {progressValue}%
+            {progressVal.get()}%
           </div>
           )}
           
