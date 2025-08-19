@@ -122,7 +122,7 @@ const Page = () => {
       className="bg-neutral-200 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] selection:bg-red-600 selection:text-white px-6 md:px-8 lg:px-10 relative"
     >
       <div
-        className={`absolute w-4 h-4 bg-red-600 rounded-full pointer-events-none transition-all duration-300 ease-out z-50 ${
+        className={`absolute hidden md:block w-4 h-4 bg-red-600 rounded-full pointer-events-none transition-all duration-300 ease-out z-50 ${
           isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"
         }`}
         style={{

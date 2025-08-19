@@ -171,7 +171,7 @@ const page = () => {
       className="bg-neutral-100 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
     >
       <div
-        className={`absolute w-[14px] h-[14px] left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
+        className={`absolute hidden md:block w-[14px] h-[14px] left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
           activeItem !== null ? "opacity-100 scale-100" : "opacity-0 scale-50"
         }`}
         style={{
@@ -203,7 +203,7 @@ const page = () => {
 
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              expandedItems.has(index) ? "max-h-96 opacity-100 blur-none" : "max-h-0 opacity-50 blur-[3px]"
+              expandedItems.has(index) ? "max-h-none opacity-100 blur-none" : "max-h-0 opacity-50 blur-[3px]"
             }`}
           >
             <div className="px-4 pt-4 pb-12">
