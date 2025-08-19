@@ -10,6 +10,23 @@ const page = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null)
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Function to update dot position for current active item
+  const updateDotPosition = () => {
+    if (activeItem !== null && containerRef.current) {
+      const activeRef = itemRefs.current[activeItem]
+      if (activeRef) {
+        const rect = activeRef.getBoundingClientRect()
+        const containerRect = containerRef.current.getBoundingClientRect()
+
+        setDotPosition({
+          x: rect.left - containerRect.left - 16,
+          y: rect.top - containerRect.top + rect.height / 2,
+        })
+      }
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,6 +35,41 @@ const page = () => {
 
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Update dot position when window is resized
+      updateDotPosition()
+    }
+
+    const handleScroll = () => {
+      // Update dot position when scrolling
+      updateDotPosition()
+    }
+
+    window.addEventListener("resize", handleResize)
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [activeItem])
+
+  // Update dot position whenever activeItem changes
+  useEffect(() => {
+    updateDotPosition()
+  }, [activeItem])
+
+  // Initialize dot position after component mounts
+  useEffect(() => {
+    if (isLoadedWithDelay) {
+      const timer = setTimeout(() => {
+        updateDotPosition()
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [isLoadedWithDelay])
 
   const toggleExpanded = (index: any) => {
     setExpandedItems((prev) => {
@@ -32,6 +84,11 @@ const page = () => {
   }
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>, itemIndex: number) => {
+    setActiveItem(itemIndex)
+    
+    // Store the ref for this item
+    itemRefs.current[itemIndex] = event.currentTarget
+    
     const rect = event.currentTarget.getBoundingClientRect()
     const containerRect = containerRef.current?.getBoundingClientRect()
 
@@ -41,8 +98,6 @@ const page = () => {
         y: rect.top - containerRect.top + rect.height / 2,
       })
     }
-
-    setActiveItem(itemIndex)
   }
 
   const contents = [
@@ -116,7 +171,7 @@ const page = () => {
       className="bg-neutral-100 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
     >
       <div
-        className={`absolute w-3 h-3 left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
+        className={`absolute w-[14px] h-[14px] left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
           activeItem !== null ? "opacity-100 scale-100" : "opacity-0 scale-50"
         }`}
         style={{
