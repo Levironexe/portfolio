@@ -84,7 +84,7 @@ const PersistentNavbar = () => {
     <div className={`top-0 left-0 w-full z-50 ${currentRoute !== '' ? "relative" : "sticky"}`}>
       <div className={`w-[180px] mx-auto absolute top-[10vh] left-0 right-0 text-center text-2xl font-bold text-neutral-500`}>
         <div className="relative flex group">
-          <div className="absolute -left-3 -top-3 h-[calc(24px+21.875px)] w-[204px] rounded-lg backdrop-blur-3xl"></div>
+          <div className="absolute -left-3 -top-3 h-[calc(24px+21.875px)] w-[204px] rounded-xl backdrop-blur-3xl"></div>
           <div className="absolute w-full flex justify-evenly text-neutral-500 font-light gap-2">
             {Array.from({ length: 18 }, (_, i) => {
               const isRed = i % 3 == 0 && i != 12;

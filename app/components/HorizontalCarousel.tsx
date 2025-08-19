@@ -132,7 +132,7 @@ useEffect(() => {
   return (
     <section
       ref={targetRef}
-      className="relative h-[600vh] bg-neutral-200 scrollbar-hide"
+      className="relative h-[500vh] bg-neutral-200 scrollbar-hide"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden scrollbar-hide">
         <motion.div style={{ x, scale }} className="flex gap-[2vw]">
@@ -312,7 +312,7 @@ useEffect(() => {
                 // overflowX: 'clip',
               }}
             >
-              <motion.p style={{ x: textMoveX7 }}>Projects</motion.p>
+              <motion.p style={{ x: textMoveX7}}>Projects</motion.p>
             </Link>
           </div>
 

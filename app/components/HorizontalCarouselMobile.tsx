@@ -161,9 +161,7 @@ const HorizontalScrollCarouselMobile = () => {
         </div>
 
         {/* Card 5 - Decor */}
-        <div className="relative">
-          <div className="text-base text-transparent cursor-default mb-3">Hehe</div>
-          
+        <div className="relative">          
           <div 
             className="group relative bg-red-600 selection:bg-[#0a0a0a] selection:text-white flex flex-col justify-center leading-tight text-white"
             style={{ 
@@ -185,9 +183,7 @@ const HorizontalScrollCarouselMobile = () => {
         </div>
 
         {/* Card 6 - Contact */}
-        <div className="relative">
-          <div className="text-base text-transparent cursor-default mb-3">Hehe</div>
-          
+        <div className="relative">          
           <div 
             className="group relative bg-white text-[#0a0a0a] cursor-default"
             style={{ 

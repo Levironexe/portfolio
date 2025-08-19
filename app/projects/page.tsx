@@ -125,7 +125,7 @@ const page = () => {
         }}
       />
 
-      <div className="flex flex-col items-center justify-center pt-20 md:pt-0"></div>
+      <div className="flex flex-col items-center justify-center pt-20 "></div>
       {contents.map((content, index) => (
         <div key={index} className="max-w-5xl mx-auto flex flex-col gap-2 px-6 md:px-8 lg:px-10">
           <div
