@@ -113,10 +113,10 @@ const page = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-neutral-100 w-full min-h-screen py-[calc(10vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
+      className="bg-neutral-100 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
     >
       <div
-        className={`absolute w-3 h-3 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
+        className={`absolute w-3 h-3 left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
           activeItem !== null ? "opacity-100 scale-100" : "opacity-0 scale-50"
         }`}
         style={{
@@ -125,7 +125,7 @@ const page = () => {
         }}
       />
 
-      <div className="flex flex-col items-center"></div>
+      <div className="flex flex-col items-center justify-center pt-20 md:pt-0"></div>
       {contents.map((content, index) => (
         <div key={index} className="max-w-5xl mx-auto flex flex-col gap-2 px-6 md:px-8 lg:px-10">
           <div
