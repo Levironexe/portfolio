@@ -270,8 +270,10 @@ const page = () => {
             </div>
             <div className="flex-1 mx-4">
               <div className={`transition-all duration-1400 ease-out ${          
-              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.8px]" : "w-0 bg-neutral-500 h-[1px]"
-            }`}></div>
+              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.8px]" : "w-0 bg-neutral-500 h-[1.1px]"
+            }`}
+          
+            ></div>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-neutral-500 font-semibold">{content.year}</div>
