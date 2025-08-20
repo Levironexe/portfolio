@@ -12,6 +12,7 @@ const page = () => {
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 })
   const [visibleItems, setVisibleItems] = useState(new Set<number>())
   const [expandedLines, setExpandedLines] = useState(new Set<number>())
+  const [bgTransitioned, setBgTransitioned] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -35,6 +36,15 @@ const page = () => {
     const timer = setTimeout(() => {
       setIsLoadedWithDelay(true)
     }, 250)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Background transition effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBgTransitioned(true)
+    }, 100) // Start transition after 100ms
 
     return () => clearTimeout(timer)
   }, [])
@@ -101,7 +111,7 @@ const page = () => {
       contents.forEach((_, index) => {
         const timer = setTimeout(() => {
           setExpandedLines(prev => new Set([...prev, index]))
-        }, index * 150 + 300) // Same stagger + 300ms additional delay for lines
+        }, index * 150 + 500) // Same stagger + 300ms additional delay for lines
         
         timers.push(timer)
       })
@@ -216,7 +226,9 @@ const page = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-neutral-100 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative"
+      className={`w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] text-sm selection:bg-purple-600 selection:text-white relative transition-all duration-1000 ease-out ${
+        bgTransitioned ? "bg-neutral-100" : "bg-neutral-200"
+      }`}
     >
       <div
         className={`absolute hidden md:block w-[14px] h-[14px] left-0 bg-purple-600 rounded-full pointer-events-none transition-all duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2 z-50 ${
@@ -230,7 +242,7 @@ const page = () => {
 
       <div className="flex flex-col items-center justify-center pt-20 "></div>
       {contents.map((content, index) => (
-        <div key={content.id} className={`max-w-5xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-200 ${
+        <div key={content.id} className={`max-w-5xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
           visibleItems.has(index) ? "opacity-100" : "opacity-0"
         }`}>
 
@@ -244,7 +256,9 @@ const page = () => {
               <ScrambleText          
               text1={content.name}
               text2={content.subtitle}
-              delay={index * 200} // Staggered delay: 0ms, 200ms, 400ms, etc.
+              delay={index * 150} // Staggered delay: 0ms, 200ms, 400ms, etc.
+              speed1={40} // Speed for text1 (name)
+              speed2={25} // Speed for text2 (subtitle) - faster
               className1="font-semibold"
               className2="text-neutral-500 hidden lg:block"
               />
@@ -255,12 +269,12 @@ const page = () => {
               {/* <div className="text-neutral-500 hidden lg:block">{content.subtitle}</div> */}
             </div>
             <div className="flex-1 mx-4">
-              <div className={`transition-all duration-700 ease-out ${          
-              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.7px]" : "w-0 bg-neutral-600 h-[1px]"
-}`}></div>
+              <div className={`transition-all duration-1400 ease-out ${          
+              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.8px]" : "w-0 bg-neutral-500 h-[1px]"
+            }`}></div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="text-neutral-500">{content.year}</div>
+              <div className="text-neutral-500 font-semibold">{content.year}</div>
             </div>
           </div>
           <div
