@@ -103,11 +103,11 @@ const HorizontalScrollCarouselMobile = () => {
           </div>
         </div>
 
-        {/* Card 2 - Education */}
+        {/* Card 2 - Background */}
         <div className={`relative transition-opacity duration-1100 ${isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"}`}>
-          <div className="text-base text-neutral-500 mb-3">Education</div>
+          <div className="text-base text-neutral-500 mb-3">Background</div>
           
-          <Link href="/education" className="text-[#0a0a0a] relative cursor-pointer block" style={{ width: "80vw" }}>
+          <Link href="/Background" className="text-[#0a0a0a] relative cursor-pointer block" style={{ width: "80vw" }}>
             <div 
               className="relative bg-white flex flex-col justify-center z-10 overflow-hidden"
               style={{ height: "80vw" }}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Raleway, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Raleway, Poppins, Parisienne } from "next/font/google";
 import "./globals.css";
 import PersistentNavbar from "./components/PersistentNavbar";
 
@@ -24,6 +24,11 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+const parisienne = Parisienne({
+  variable: "--font-parisienne",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "Leviron",
@@ -38,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${parisienne.variable} antialiased`}
       >
         <PersistentNavbar />
         {children}

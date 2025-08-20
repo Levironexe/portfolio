@@ -2,27 +2,28 @@
 @import "tailwind-scrollbar-hide/v4";
 
 :root {
-  --background: #ffffff;
+  --Background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-Background: var(--Background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-poppins: var(--font-poppins);
+  --font-parisienne: var(--font-parisienne);
 }
   
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --Background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
 html, body {
-  background: var(--background);
+  Background: var(--Background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, sans-serif;
   -ms-overflow-style: none;

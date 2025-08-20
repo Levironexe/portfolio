@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { motion, useTransform, useScroll, useMotionValue } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 const PersistentNavbar = () => {
-  const progressVal = useMotionValue("0");
+  const [progressValue, setProgressValue] = useState<string>("0");
   const pathname = usePathname();
   const currentRoute = pathname.split('/')[1] || '';
   const { scrollYProgress } = useScroll();
@@ -31,6 +31,7 @@ const PersistentNavbar = () => {
     const elementIndex = redElementIndices[cardIndex];
     return (elementIndex / (totalElements - 1)) * totalRange;
   };
+  console.log('Position 0:', calculatePosition(0)); // Should be 0
 
   // Define static positions for routes
   const getXPosition = () => {
@@ -53,7 +54,7 @@ const PersistentNavbar = () => {
   const getProgressPercentage = (position: number) => {
     return ((position / totalRange) * 100).toFixed(1);
   };
-  console.log('rerendered');
+
   // Handle progress value updates
   useEffect(() => {
     if (currentRoute === '') {
@@ -61,21 +62,21 @@ const PersistentNavbar = () => {
       const unsubscribe = xIndicator.onChange((latest) => {
         const numericValue = parseFloat(latest.replace('%', ''));
         const percent = ((numericValue / totalRange) * 100).toFixed(1);
-        progressVal.set(percent);
+        setProgressValue(percent);
       });
       return unsubscribe;
     } else {
       // Static routes: set precise progress
       if (currentRoute === 'education') {
-        progressVal.set(getProgressPercentage(calculatePosition(1))); // 17.6%
+        setProgressValue(getProgressPercentage(calculatePosition(1))); // 17.6%
       } else if (currentRoute === 'skills-and-achievements') {
-        progressVal.set(getProgressPercentage(calculatePosition(2))); // 35.3%
+        setProgressValue(getProgressPercentage(calculatePosition(2))); // 35.3%
       } else if (currentRoute === 'projects') {
-        progressVal.set(getProgressPercentage(calculatePosition(3))); // 52.9%
+        setProgressValue(getProgressPercentage(calculatePosition(3))); // 52.9%
       } else if (currentRoute === 'contact') {
-        progressVal.set(getProgressPercentage(calculatePosition(5))); // 88.2%
+        setProgressValue(getProgressPercentage(calculatePosition(5))); // 88.2%
       } else {
-        progressVal.set("0");
+        setProgressValue("0.0");
       }
     }
   }, [xIndicator, currentRoute]);
@@ -84,7 +85,7 @@ const PersistentNavbar = () => {
     <div className={`top-0 left-0 w-full z-50 ${currentRoute !== '' ? "relative" : "sticky"}`}>
       <div className={`w-[180px] mx-auto absolute top-[10vh] left-0 right-0 text-center text-2xl font-bold text-neutral-500`}>
         <div className="relative flex group">
-          <div className="absolute -left-3 -top-3 h-[calc(24px+21.875px)] w-[204px] rounded-xl backdrop-blur-3xl"></div>
+          <div className="absolute -left-3 -top-3 h-[calc(24px+21.875px)] w-[204px] rounded-lg backdrop-blur-3xl"></div>
           <div className="absolute w-full flex justify-evenly text-neutral-500 font-light gap-2">
             {Array.from({ length: 18 }, (_, i) => {
               const isRed = i % 3 == 0 && i != 12;
@@ -127,13 +128,13 @@ const PersistentNavbar = () => {
             
             <motion.div onClick={() => router.push('/')}
               style={{ x: `${calculatePosition(0)}%` }}
-              className={`absolute z-0  h-[21.875px] w-[34px] cursor-pointer transition-all duration-300 ease-in ${currentRoute === '' ? "opacity-0" : currentRoute === 'projects' ? "opacity-100 bg-neutral-100" : "opacity-100 bg-neutral-200 "}  border border-neutral-500`}
+              className={`absolute z-0  h-[21.875px] w-[34px] cursor-pointer transition-all duration-300 ease-in ${currentRoute === '' ? "opacity-0" : currentRoute === 'projects' || currentRoute === 'skills-and-achievements' ? "opacity-100 bg-neutral-100" : "opacity-100 bg-neutral-200 "}  border border-neutral-500`}
             ></motion.div>
             
           </div>
           {currentRoute === '' && (
             <div className="absolute left-full ml-2 text-sm font-light flex items-center h-[21.875px] text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {progressVal.get()}%
+            {progressValue}%
           </div>
           )}
           

@@ -156,7 +156,7 @@ const Page = () => {
               <p>My name is Nguyen Thien Phuoc or Leviron.</p>
             </div>
 
-            {/* Section 2: Recent Education */}
+            {/* Section 2: Recent Background */}
             <div className="space-y-3 md:space-y-4 pb-12 md:pb-16">
               <h2
                 ref={(el) => {
