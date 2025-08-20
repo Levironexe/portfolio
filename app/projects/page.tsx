@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import type React from "react"
+import { ScrambleText } from "../components/ui/scramble-text"
 
 import { useEffect, useState, useRef } from "react"
 
@@ -9,6 +10,8 @@ const page = () => {
   const [expandedItems, setExpandedItems] = useState(new Set())
   const [activeItem, setActiveItem] = useState<number | null>(null)
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 })
+  const [visibleItems, setVisibleItems] = useState(new Set<number>())
+  const [expandedLines, setExpandedLines] = useState(new Set<number>())
   const containerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -71,6 +74,44 @@ const page = () => {
     }
   }, [isLoadedWithDelay])
 
+  // Staggered item visibility effect
+  useEffect(() => {
+    if (isLoadedWithDelay) {
+      const timers: NodeJS.Timeout[] = []
+      
+      contents.forEach((_, index) => {
+        const timer = setTimeout(() => {
+          setVisibleItems(prev => new Set([...prev, index]))
+        }, index * 150) // 150ms delay between each item
+        
+        timers.push(timer)
+      })
+
+      return () => {
+        timers.forEach(timer => clearTimeout(timer))
+      }
+    }
+  }, [isLoadedWithDelay])
+
+  // Staggered line expansion effect (with additional delay)
+  useEffect(() => {
+    if (isLoadedWithDelay) {
+      const timers: NodeJS.Timeout[] = []
+      
+      contents.forEach((_, index) => {
+        const timer = setTimeout(() => {
+          setExpandedLines(prev => new Set([...prev, index]))
+        }, index * 150 + 300) // Same stagger + 300ms additional delay for lines
+        
+        timers.push(timer)
+      })
+
+      return () => {
+        timers.forEach(timer => clearTimeout(timer))
+      }
+    }
+  }, [isLoadedWithDelay])
+
   const toggleExpanded = (index: any) => {
     setExpandedItems((prev) => {
       const newSet = new Set(prev)
@@ -85,10 +126,10 @@ const page = () => {
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>, itemIndex: number) => {
     setActiveItem(itemIndex)
-    
+
     // Store the ref for this item
     itemRefs.current[itemIndex] = event.currentTarget
-    
+
     const rect = event.currentTarget.getBoundingClientRect()
     const containerRect = containerRef.current?.getBoundingClientRect()
 
@@ -102,6 +143,7 @@ const page = () => {
 
   const contents = [
     {
+      id: 1,
       name: "itealab.vercel.com",
       subtitle: "The homepage for Itea Lab - a coding community",
       description:
@@ -111,6 +153,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 2,
       name: "SentinelAI",
       subtitle: "An AI-powered tool for auditing PCI DSS compliance",
       description:
@@ -120,6 +163,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 3,
       name: "LongChau-PMS",
       subtitle: "A management system solution for Long Chau Pharmacy supply chain",
       description:
@@ -129,6 +173,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 4,
       name: "carbonio",
       subtitle: "A project for SOLANA x SWINBURNE Hackathon 2025",
       description:
@@ -138,6 +183,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 5,
       name: "ArtChainAI",
       subtitle: "An AI-powered platform for Sui Agent Typhoon Hackathon 2025",
       description:
@@ -147,6 +193,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 6,
       name: "GoBuy",
       subtitle: "An SPA e-commercial web app in Vue3",
       description:
@@ -155,6 +202,7 @@ const page = () => {
       year: "2025",
     },
     {
+      id: 7,
       name: "BlockScan",
       subtitle: "A platform for auditing Solidity smart contracts",
       description:
@@ -182,28 +230,42 @@ const page = () => {
 
       <div className="flex flex-col items-center justify-center pt-20 "></div>
       {contents.map((content, index) => (
-        <div key={index} className="max-w-5xl mx-auto flex flex-col gap-2 px-6 md:px-8 lg:px-10">
+        <div key={content.id} className={`max-w-5xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-200 ${
+          visibleItems.has(index) ? "opacity-100" : "opacity-0"
+        }`}>
+
           <div
             className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
                             ${expandedItems.has(index) && "bg-neutral-200"}`}
             onClick={() => toggleExpanded(index)}
             onMouseEnter={(e) => handleMouseEnter(e, index)}
           >
-            <div className="flex gap-2">
-              <div className="font-semibold">{content.name}</div>
-              <div className="text-neutral-500 hidden lg:block">{content.subtitle}</div>
+            <div className="flex">
+              <ScrambleText          
+              text1={content.name}
+              text2={content.subtitle}
+              delay={index * 200} // Staggered delay: 0ms, 200ms, 400ms, etc.
+              className1="font-semibold"
+              className2="text-neutral-500 hidden lg:block"
+              />
+              {/* <ScrambleText          
+              text={content.subtitle}
+              delay={index * 400} // Staggered delay: 0ms, 200ms, 400ms, etc.
+              className="text-neutral-500 hidden lg:block"/> */}
+              {/* <div className="text-neutral-500 hidden lg:block">{content.subtitle}</div> */}
             </div>
             <div className="flex-1 mx-4">
-              <div className="w-full bg-neutral-300" style={{ height: "0.7px" }}></div>
+              <div className={`transition-all duration-700 ease-out ${          
+              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.7px]" : "w-0 bg-neutral-600 h-[1px]"
+}`}></div>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-neutral-500">{content.year}</div>
             </div>
           </div>
-
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              expandedItems.has(index) ? "max-h-none opacity-100 blur-none" : "max-h-0 opacity-50 blur-[3px]"
+              expandedItems.has(index) ? "max-h-[600px] opacity-100 blur-none" : "max-h-0 opacity-50 blur-[3px]"
             }`}
           >
             <div className="px-4 pt-4 pb-12">

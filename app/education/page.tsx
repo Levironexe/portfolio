@@ -134,17 +134,17 @@ const Page = () => {
 
       <div className="max-w-5xl mx-auto">
         <div
-          className={`bg-white p-8 md:p-16 flex flex-col justify-center text-base md:text-xl leading-relaxed md:leading-loose ${
+          className={`bg-white p-8 md:p-16 flex flex-col justify-center text-base md:text-[18px] leading-relaxed md:leading-loose ${
             isLoadedImmediate ? "scale-100 opacity-100" : "scale-20 opacity-0"
           } duration-600 transition-all ease-out`}
         >
           <div
             className={`${
               isLoadedWithDelay ? "opacity-100 blur-none" : "opacity-0 blur-3xl"
-            } duration-350 transition-all ease-out`}
+            } duration-250 transition-all ease-out`}
           >
             {/* Section 1: Hello */}
-            <div className="space-y-3 md:space-y-4 pb-6 md:pb-8">
+            <div className="space-y-3 md:space-y-4 pb-12 md:pb-16">
               <h2
                 ref={(el) => {
                   headerRefs.current[0] = el;
@@ -157,7 +157,7 @@ const Page = () => {
             </div>
 
             {/* Section 2: Recent Education */}
-            <div className="space-y-3 md:space-y-4 pb-6 md:pb-8">
+            <div className="space-y-3 md:space-y-4 pb-12 md:pb-16">
               <h2
                 ref={(el) => {
                   headerRefs.current[1] = el;
@@ -170,7 +170,7 @@ const Page = () => {
               <p>
                 I am an undergraduate student at{" "}
                 <span className="text-neutral-500">
-                  <Link href={"/"} target="_blank">
+                  <Link href={"https://www.swinburne.edu.au/"} target="_blank">
                     Swinburne University of Technology
                   </Link>
                 </span>{" "}
@@ -215,7 +215,7 @@ const Page = () => {
               <p>
                 I was studying at{" "}
                 <span className="text-neutral-500">
-                  <Link href={"/"} target="_blank">
+                  <Link href={"https://lhbs.edu.vn/"} target="_blank">
                     Lac Hong Bilingual School
                   </Link>
                 </span>{" "}
