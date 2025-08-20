@@ -259,7 +259,7 @@ const page = () => {
               delay={index * 150} // Staggered delay: 0ms, 200ms, 400ms, etc.
               speed1={40} // Speed for text1 (name)
               speed2={25} // Speed for text2 (subtitle) - faster
-              className1="font-semibold"
+              className1="font-medium"
               className2="text-neutral-500 hidden lg:block"
               />
               {/* <ScrambleText          
@@ -276,7 +276,7 @@ const page = () => {
             ></div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="text-neutral-500 font-semibold">{content.year}</div>
+              <div className="text-neutral-500 font-medium">{content.year}</div>
             </div>
           </div>
           <div
