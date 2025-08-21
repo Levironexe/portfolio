@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import type React from "react"
-import { ScrambleText } from "../components/ui/scramble-text"
+import { ScrambleText } from "../../components/ui/scramble-text"
 
 import { useEffect, useState, useRef } from "react"
 

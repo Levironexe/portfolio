@@ -220,7 +220,7 @@ useEffect(() => {
             <div className="text-2xl text-neutral-500 pb-4">Background</div>
             {/* main card */}
             <Link
-              href={"/education"}
+              href={"/background"}
               className="relative h-[50vw] w-[80vw] bg-white flex flex-col justify-center z-10"
             >
               <div className="overflow-hidden flex flex-col justify-center items-center z-20">

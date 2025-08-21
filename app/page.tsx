@@ -1,6 +1,6 @@
 import Image from "next/image";
-import HorizontalCarousel from "./components/HorizontalCarousel";
-import HorizontalScrollCarouselMobile from "./components/HorizontalCarouselMobile";
+import HorizontalCarousel from "../components/HorizontalCarousel";
+import HorizontalScrollCarouselMobile from "../components/HorizontalCarouselMobile";
 export default function Home() {
   return (
     <div className="relative">

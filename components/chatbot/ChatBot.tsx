@@ -135,7 +135,7 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
        
       <div
         className={`z-10 relative flex flex-col 
-    bg-white  border-neutral-100 rounded-[39px] border-[8px]  shadow-sm ${className}
+    bg-white  border-neutral-100 rounded-[39px] border-[8px] shadow-sm ${className}
     ${
       toggle
         ? "opacity-100 h-[calc(90vh-104px)]"
@@ -144,8 +144,10 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
     transition-all duration-700 ease-in-out
     `}
       >
+        <div className="absolute bg-gradient-to-b from-white/90 to-transparent top-0 left-0 w-full h-7 rounded-t-[39px] z-50"></div>
+        <div className="absolute bg-gradient-to-t from-white/90 to-transparent bottom-0 left-0 w-full h-7 rounded-b-[39px] z-50"></div>
         {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="relative z-0 flex-1 overflow-y-auto p-4 space-y-4 rounded-[30px]">
           {messages.map((message) => (
             <div
               key={message.id}

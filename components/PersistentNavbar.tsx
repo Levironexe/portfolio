@@ -19,7 +19,7 @@ const PersistentNavbar = () => {
   const redElementIndices = [0, 3, 6, 9, 15]; // Elements that are red (excluding 12)
   const cardPositions = {
     me: 0,           // Element 0: 0% of 425% = 0%
-    education: 1,    // Element 3: 3/17 * 425% ≈ 75%
+    background: 1,    // Element 3: 3/17 * 425% ≈ 75%
     skills: 2,       // Element 6: 6/17 * 425% ≈ 150%
     projects: 3,     // Element 9: 9/17 * 425% ≈ 225%
     quote: 4,        // Skip element 12 (not red)
@@ -37,7 +37,7 @@ const PersistentNavbar = () => {
   const getXPosition = () => {
     if (currentRoute === '') {
       return xIndicator; // Use scroll-based position for root
-    } else if (currentRoute === 'education') {
+    } else if (currentRoute === 'background') {
       return `${calculatePosition(1)}%`; // 75%
     } else if (currentRoute === 'skills-and-achievements') {
       return `${calculatePosition(2)}%`; // 150%
@@ -67,7 +67,7 @@ const PersistentNavbar = () => {
       return unsubscribe;
     } else {
       // Static routes: set precise progress
-      if (currentRoute === 'education') {
+      if (currentRoute === 'background') {
         setProgressValue(getProgressPercentage(calculatePosition(1))); // 17.6%
       } else if (currentRoute === 'skills-and-achievements') {
         setProgressValue(getProgressPercentage(calculatePosition(2))); // 35.3%
@@ -91,7 +91,7 @@ const PersistentNavbar = () => {
               const isRed = i % 3 == 0 && i != 12;
               const cardNames = [
                 "Me",
-                "Education", 
+                "Background", 
                 "Skills",
                 "Projects",
                 "Quote",
@@ -123,7 +123,7 @@ const PersistentNavbar = () => {
           <div className="flex gap-2">
             <motion.div
               style={{ x: getXPosition() }}
-              className={`relative z-10 h-[21.875px] w-[34px] transition-all duration-300 ease-out border ${currentRoute === 'projects' ? " border-purple-600 bg-purple-600": currentRoute === 'skills-and-achievements' ? "border-orange-600 bg-orange-600" : currentRoute==='education' ? "border-red-600 bg-red-600" : "bg-neutral-200 border border-neutral-500"}`}
+              className={`relative z-10 h-[21.875px] w-[34px] transition-all duration-300 ease-out border ${currentRoute === 'projects' ? " border-purple-600 bg-purple-600": currentRoute === 'skills-and-achievements' ? "border-orange-600 bg-orange-600" : currentRoute==='background' ? "border-red-600 bg-red-600" : "bg-neutral-200 border border-neutral-500"}`}
             ></motion.div>
             
             <motion.div onClick={() => router.push('/')}

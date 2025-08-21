@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Raleway, Poppins, Parisienne } from "next/font/google";
 import "./globals.css";
-import PersistentNavbar from "./components/PersistentNavbar";
+import PersistentNavbar from "../components/PersistentNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
