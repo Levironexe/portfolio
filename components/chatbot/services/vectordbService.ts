@@ -25,9 +25,8 @@ export class VectorService {
     if (this.isInitialized) return;
 
     try {
-      this.collection = await this.client.getOrCreateCollection({
+      this.collection = await this.client.getCollection({
         name: this.collectionName,
-        metadata: { "hnsw:space": "cosine" },
       });
 
       this.isInitialized = true;
