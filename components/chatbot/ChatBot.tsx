@@ -9,6 +9,10 @@ interface SimpleChatBotProps {
   title?: string;
   toggle?: boolean;
   onToggleDisable?: () => void;
+  metadata?: {
+    relevantDocuments: number;
+    source: string;
+  }
 }
 
 const ChatBot: React.FC<SimpleChatBotProps> = ({
@@ -95,9 +99,13 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: aiResponse,
+        text: aiResponse.message,
         sender: "bot",
         timestamp: new Date(),
+        metadata: aiResponse.metadata ? {
+          relevantDocuments: aiResponse.metadata.relevantDocuments,
+          source: aiResponse.metadata.source
+        } : undefined
       };
 
       setMessages((prev) => [...prev, botMessage]);
@@ -174,6 +182,12 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
                   <p className="text-sm leading-relaxed whitespace-pre-wrap">
                     {message.text}
                   </p>
+                  {message.sender === "bot" && message.metadata?.relevantDocuments && message.metadata.relevantDocuments > 0 && (
+                    <p className="mt-4 text-[12px] px-2 py-1 w-fit rounded-full bg-neutral-200 leading-relaxed whitespace-pre-wrap">
+                      Relevant documents found: {message.metadata.relevantDocuments}
+                    </p>
+                  )}
+
                 </div>
                 <span className="text-xs text-gray-400 mt-1 px-1">
                   {formatTime(message.timestamp)}

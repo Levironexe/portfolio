@@ -1,155 +1,158 @@
-"use client"
-import Link from "next/link"
-import type React from "react"
-import { ScrambleText } from "../../components/ui/scramble-text"
+"use client";
+import Link from "next/link";
+import type React from "react";
+import { ScrambleText } from "../../components/ui/scramble-text";
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react";
 
 const page = () => {
-  const [isLoadedWithDelay, setIsLoadedWithDelay] = useState(false)
-  const [expandedItems, setExpandedItems] = useState(new Set())
-  const [activeItem, setActiveItem] = useState<number | null>(null)
-  const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 })
-  const [visibleItems, setVisibleItems] = useState(new Set<number>())
-  const [expandedLines, setExpandedLines] = useState(new Set<number>())
-  const [bgTransitioned, setBgTransitioned] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [isLoadedWithDelay, setIsLoadedWithDelay] = useState(false);
+  const [expandedItems, setExpandedItems] = useState(new Set());
+  const [activeItem, setActiveItem] = useState<number | null>(null);
+  const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
+  const [visibleItems, setVisibleItems] = useState(new Set<number>());
+  const [expandedLines, setExpandedLines] = useState(new Set<number>());
+  const [bgTransitioned, setBgTransitioned] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Function to update dot position for current active item
   const updateDotPosition = () => {
     if (activeItem !== null && containerRef.current) {
-      const activeRef = itemRefs.current[activeItem]
+      const activeRef = itemRefs.current[activeItem];
       if (activeRef) {
-        const rect = activeRef.getBoundingClientRect()
-        const containerRect = containerRef.current.getBoundingClientRect()
+        const rect = activeRef.getBoundingClientRect();
+        const containerRect = containerRef.current.getBoundingClientRect();
 
         setDotPosition({
           x: rect.left - containerRect.left - 16,
           y: rect.top - containerRect.top + rect.height / 2,
-        })
+        });
       }
     }
-  }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoadedWithDelay(true)
-    }, 250)
+      setIsLoadedWithDelay(true);
+    }, 250);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   // Background transition effect
   useEffect(() => {
     const timer = setTimeout(() => {
-      setBgTransitioned(true)
-    }, 100) // Start transition after 100ms
+      setBgTransitioned(true);
+    }, 100); // Start transition after 100ms
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
       // Update dot position when window is resized
-      updateDotPosition()
-    }
+      updateDotPosition();
+    };
 
     const handleScroll = () => {
       // Update dot position when scrolling
-      updateDotPosition()
-    }
+      updateDotPosition();
+    };
 
-    window.addEventListener("resize", handleResize)
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [activeItem])
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeItem]);
 
   // Update dot position whenever activeItem changes
   useEffect(() => {
-    updateDotPosition()
-  }, [activeItem])
+    updateDotPosition();
+  }, [activeItem]);
 
   // Initialize dot position after component mounts
   useEffect(() => {
     if (isLoadedWithDelay) {
       const timer = setTimeout(() => {
-        updateDotPosition()
-      }, 100)
-      return () => clearTimeout(timer)
+        updateDotPosition();
+      }, 100);
+      return () => clearTimeout(timer);
     }
-  }, [isLoadedWithDelay])
+  }, [isLoadedWithDelay]);
 
   // Staggered item visibility effect
   useEffect(() => {
     if (isLoadedWithDelay) {
-      const timers: NodeJS.Timeout[] = []
-      
+      const timers: NodeJS.Timeout[] = [];
+
       contents.forEach((_, index) => {
         const timer = setTimeout(() => {
-          setVisibleItems(prev => new Set([...prev, index]))
-        }, index * 150) // 150ms delay between each item
-        
-        timers.push(timer)
-      })
+          setVisibleItems((prev) => new Set([...prev, index]));
+        }, index * 150); // 150ms delay between each item
+
+        timers.push(timer);
+      });
 
       return () => {
-        timers.forEach(timer => clearTimeout(timer))
-      }
+        timers.forEach((timer) => clearTimeout(timer));
+      };
     }
-  }, [isLoadedWithDelay])
+  }, [isLoadedWithDelay]);
 
   // Staggered line expansion effect (with additional delay)
   useEffect(() => {
     if (isLoadedWithDelay) {
-      const timers: NodeJS.Timeout[] = []
-      
+      const timers: NodeJS.Timeout[] = [];
+
       contents.forEach((_, index) => {
         const timer = setTimeout(() => {
-          setExpandedLines(prev => new Set([...prev, index]))
-        }, index * 150 + 500) // Same stagger + 300ms additional delay for lines
-        
-        timers.push(timer)
-      })
+          setExpandedLines((prev) => new Set([...prev, index]));
+        }, index * 150 + 500); // Same stagger + 300ms additional delay for lines
+
+        timers.push(timer);
+      });
 
       return () => {
-        timers.forEach(timer => clearTimeout(timer))
-      }
+        timers.forEach((timer) => clearTimeout(timer));
+      };
     }
-  }, [isLoadedWithDelay])
+  }, [isLoadedWithDelay]);
 
   const toggleExpanded = (index: any) => {
     setExpandedItems((prev) => {
-      const newSet = new Set(prev)
+      const newSet = new Set(prev);
       if (newSet.has(index)) {
-        newSet.delete(index)
+        newSet.delete(index);
       } else {
-        newSet.add(index)
+        newSet.add(index);
       }
-      return newSet
-    })
-  }
+      return newSet;
+    });
+  };
 
-  const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>, itemIndex: number) => {
-    setActiveItem(itemIndex)
+  const handleMouseEnter = (
+    event: React.MouseEvent<HTMLDivElement>,
+    itemIndex: number
+  ) => {
+    setActiveItem(itemIndex);
 
     // Store the ref for this item
-    itemRefs.current[itemIndex] = event.currentTarget
+    itemRefs.current[itemIndex] = event.currentTarget;
 
-    const rect = event.currentTarget.getBoundingClientRect()
-    const containerRect = containerRef.current?.getBoundingClientRect()
+    const rect = event.currentTarget.getBoundingClientRect();
+    const containerRect = containerRef.current?.getBoundingClientRect();
 
     if (containerRect) {
       setDotPosition({
         x: rect.left - containerRect.left - 16,
         y: rect.top - containerRect.top + rect.height / 2,
-      })
+      });
     }
-  }
+  };
 
   const contents = [
     {
@@ -158,9 +161,10 @@ const page = () => {
       subtitle: "The homepage for Itea Lab - a coding community",
       description:
         "The Itea Lab homepage is also a modern and responsive website built with Next.js and Tailwind CSS to showcase the activities of the Itea Lab coding community. It highlights community projects, event listings, and member profiles while leveraging server-side rendering for improved performance and SEO. Designed as both an information hub and a community portal, it provides a sleek, accessible platform for developers to connect and collaborate.",
-      link: "https://github.com/Levironexe/itealab-static-web",
+      gitHubLink: "https://github.com/Levironexe/itealab-static-web",
       webUrl: "https://itealab.vercel.app",
       year: "2025",
+      video_1_source: "/videos/itealab-demo-compressed.mp4",
     },
     {
       id: 2,
@@ -168,17 +172,18 @@ const page = () => {
       subtitle: "An AI-powered tool for auditing PCI DSS compliance",
       description:
         "SentinelAI is an AI-powered compliance automation framework designed to streamline PCI DSS v4.0 audits for financial institutions, built during the VPBank Hackathon 2025. By integrating Amazon Bedrock AI (Claude 3.5 Sonnet), AWS Config, CloudTrail, Security Hub, and Aurora PostgreSQL, it automates evidence collection, compliance evaluation, and report generation across 200+ AWS accounts. \nThe framework eliminates manual auditing by offering real-time dashboards, AI audit agents, cross-framework mapping, intelligent risk prioritization, and multi-format reporting. Its modular architecture includes an AI agent orchestrator, evidence collector, RAG-based knowledge base, and frontend compliance portal. With up to 90% faster evidence collection and 80% less prep time, SentinelAI demonstrates enterprise scalability, cost savings, and adaptive learning for long-term compliance management.",
-      link: "https://github.com/ngna3007/sentinelai-audit-framework",
+      gitHubLink: "https://github.com/ngna3007/sentinelai-audit-framework",
       webUrl: "",
       year: "2025",
     },
     {
       id: 3,
       name: "LongChau-PMS",
-      subtitle: "A management system solution for Long Chau Pharmacy supply chain",
+      subtitle:
+        "A management system solution for Long Chau Pharmacy",
       description:
         "A proof-of-concept full-stack pharmacy platform built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.",
-      link: "https://github.com/Levironexe/LongChau-PMS",
+      gitHubLink: "https://github.com/Levironexe/LongChau-PMS",
       webUrl: "",
       year: "2025",
     },
@@ -188,7 +193,7 @@ const page = () => {
       subtitle: "A project for SOLANA x SWINBURNE Hackathon 2025",
       description:
         "Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts. It enables companies to register, upload carbon data, and undergo verification by third-party auditors, while consumers can scan QR codes to view verified footprints. Built with Next.js, TypeScript, Express, and Anchor smart contracts, Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex. By offering portals for consumers, companies, and auditors, it fosters a multi-user ecosystem that tracks and incentivizes emission reduction.",
-      link: "https://github.com/Levironexe/carbonio",
+      gitHubLink: "https://github.com/Levironexe/carbonio",
       webUrl: "https://carbonio.vercel.app",
       year: "2025",
     },
@@ -198,7 +203,7 @@ const page = () => {
       subtitle: "An AI-powered platform for Sui Agent Typhoon Hackathon 2025",
       description:
         "ArtChain AI combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.",
-      link: "https://github.com/Levironexe/carbonio",
+      gitHubLink: "https://github.com/Levironexe/carbonio",
       webUrl: "https://art-chain-ai-delta.vercel.app/",
       year: "2025",
     },
@@ -208,7 +213,7 @@ const page = () => {
       subtitle: "An SPA e-commercial web app in Vue3",
       description:
         "GoBuy is a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration). \nThe platform provides full e-commerce functionality, including product listings with filtering, shopping cart management, checkout, and seller dashboards. It features user authentication via email/password, magic links, and Google OAuth, along with customizable user profiles. \nA strong emphasis on modern UI/UX ensures a responsive, polished experience with animations, loading skeletons, and instant translations. The backend REST API supports secure JWT authentication, Supabase-managed data, and smart caching for performance. \nDeployed on Vercel (frontend) and Render (backend), GoBuy demonstrates a scalable architecture for international online marketplaces, balancing accessibility, performance, and security.",
-      link: "https://github.com/Levironexe/carbonio",
+      gitHubLink: "https://github.com/Levironexe/carbonio",
       year: "2025",
     },
     {
@@ -217,11 +222,11 @@ const page = () => {
       subtitle: "A platform for auditing Solidity smart contracts",
       description:
         "BlockScan is a web-based platform focused on strengthening blockchain security by providing automated smart contract auditing tools. It leverages the Slither static analysis framework to detect vulnerabilities such as reentrancy, unchecked calls, and integer overflow. The system translates raw Slither output into user-friendly audit reports, complete with severity ratings and remediation guidance. \nThe platform features a dashboard interface that gives users contract overviews, risk assessments, token details, and downloadable PDF reports. It also provides historical audit tracking, making it easy to compare improvements over time. Built with Next.js, Node.js, Supabase, and TailwindCSS, BlockScan offers both beginner-friendly usability and professional-grade analysis for developers and businesses deploying Solidity contracts.",
-      link: "https://github.com/Levironexe/carbonio",
+      gitHubLink: "https://github.com/Levironexe/carbonio",
       webUrl: "https://blockscan-sooty.vercel.app",
       year: "2024",
     },
-  ]
+  ];
 
   return (
     <div
@@ -242,10 +247,12 @@ const page = () => {
 
       <div className="flex flex-col items-center justify-center pt-20 "></div>
       {contents.map((content, index) => (
-        <div key={content.id} className={`max-w-5xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
-          visibleItems.has(index) ? "opacity-100" : "opacity-0"
-        }`}>
-
+        <div
+          key={content.id}
+          className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
+            visibleItems.has(index) ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <div
             className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
                             ${expandedItems.has(index) && "bg-neutral-200"}`}
@@ -253,14 +260,14 @@ const page = () => {
             onMouseEnter={(e) => handleMouseEnter(e, index)}
           >
             <div className="flex">
-              <ScrambleText          
-              text1={content.name}
-              text2={content.subtitle}
-              delay={index * 150} // Staggered delay: 0ms, 200ms, 400ms, etc.
-              speed1={40} // Speed for text1 (name)
-              speed2={25} // Speed for text2 (subtitle) - faster
-              className1="font-medium"
-              className2="text-neutral-500 hidden lg:block"
+              <ScrambleText
+                text1={content.name}
+                text2={content.subtitle}
+                delay={index * 150} // Staggered delay: 0ms, 200ms, 400ms, etc.
+                speed1={40} // Speed for text1 (name)
+                speed2={25} // Speed for text2 (subtitle) - faster
+                className1="font-medium"
+                className2="text-neutral-500 hidden lg:block"
               />
               {/* <ScrambleText          
               text={content.subtitle}
@@ -269,11 +276,13 @@ const page = () => {
               {/* <div className="text-neutral-500 hidden lg:block">{content.subtitle}</div> */}
             </div>
             <div className="flex-1 mx-4">
-              <div className={`transition-all duration-1400 ease-out ${          
-              expandedLines.has(index) ? "w-full bg-neutral-300 h-[0.8px]" : "w-0 bg-neutral-500 h-[1.1px]"
-            }`}
-          
-            ></div>
+              <div
+                className={`transition-all duration-1400 ease-out ${
+                  expandedLines.has(index)
+                    ? "w-full bg-neutral-300 h-[0.8px]"
+                    : "w-0 bg-neutral-500 h-[1.1px]"
+                }`}
+              ></div>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-neutral-500 font-medium">{content.year}</div>
@@ -281,42 +290,97 @@ const page = () => {
           </div>
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              expandedItems.has(index) ? "max-h-[600px] opacity-100 blur-none" : "max-h-0 opacity-50 blur-[3px]"
+              expandedItems.has(index)
+                ? "max-h-full opacity-100 blur-none"
+                : "max-h-0 opacity-50 blur-[3px]"
             }`}
           >
             <div className="px-4 pt-4 pb-12">
-              <div className="rounded-lg ">
-                <div className="text-neutral-700 leading-loose mb-4">
+              <div className="rounded-lg space-y-2">
+                <div className="text-neutral-700 leading-loose">
                   {content.description.split("\n").map((paragraph, idx) => (
                     <p key={idx} className="mb-3 last:mb-0">
                       {paragraph}
                     </p>
                   ))}
                 </div>
-
-                <div className="flex flex-col gap-3 flex-wrap">
+                {content.video_1_source && content.webUrl && (
+                  <Link href={content.webUrl} target="_blank" className="block rounded-xl bg-white p-1 border-[1px] border-neutral-200/80">
+                    <video
+                      width="100%"
+                      height="auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="rounded-[8px]"
+                    >
+                      <source src={content.video_1_source} type="video/mp4" />
+                    </video>
+                    <div className="block w-full bg-neutral-200/80 text-center p-2 rounded-lg mt-1 font-medium text-[14px]">
+                        View website
+                    </div>
+                   
+                      
+                  </Link>
+                )}{content.video_1_source && content.gitHubLink && (
+                  <Link href={content.gitHubLink} target="_blank" className="block rounded-xl bg-white p-1 border-[1px] border-neutral-200/80">
+                    <video
+                      width="100%"
+                      height="auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="rounded-[8px]"
+                    >
+                      <source src={content.video_1_source} type="video/mp4" />
+                    </video>
+                    <div className="block w-full bg-neutral-200/80 text-center p-2 rounded-lg mt-1 font-medium text-[14px]">
+                        View website
+                    </div>
+                   
+                      
+                  </Link>
+                )}
+                
+                {/* <div className="flex flex-col gap-3 flex-wrap">
                   {content.link && (
-                    <Link href={content.link} target="_blank" className="inline-flex items-center py-1.5">
-                      <span className="hover:underline duration-200 transition-all ease-in-out">{content.link}</span>
+                    <Link
+                      href={content.link}
+                      target="_blank"
+                      className="inline-flex items-center py-1.5"
+                    >
+                      <span className="hover:underline duration-200 transition-all ease-in-out">
+                        {content.link}
+                      </span>
                     </Link>
                   )}
                   {content.webUrl && (
                     <Link
-                      href={content.webUrl.startsWith("http") ? content.webUrl : `https://${content.webUrl}`}
+                      href={
+                        content.webUrl.startsWith("http")
+                          ? content.webUrl
+                          : `https://${content.webUrl}`
+                      }
                       target="_blank"
                       className="inline-flex items-center py-1.5"
                     >
-                      <span className="hover:underline duration-200 transition-all ease-in-out">{content.webUrl}</span>
+                      <span className="hover:underline duration-200 transition-all ease-in-out">
+                        {content.webUrl}
+                      </span>
                     </Link>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

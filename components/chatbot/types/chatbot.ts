@@ -3,6 +3,10 @@ export interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  metadata?: {
+    relevantDocuments: number;
+    source: string;
+  }
 }
 
 export interface ChatBotProps {

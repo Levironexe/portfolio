@@ -5,8 +5,14 @@ export interface ChatMessage {
 }
 
 export interface ChatServiceResponse {
-  message: string;
+  response: string;
+  success?: boolean;
   error?: string;
+  metadata?: {
+    relevantDocuments: number;
+    timestamp: string;
+    source: string;
+  };
 }
 
 export type PortfolioContext = 'general' | 'skills' | 'projects' | 'education';
@@ -18,7 +24,7 @@ export class ChatService {
   /**
    * Send a message to the chat API
    */
-  async sendMessage(userMessage: string): Promise<string> {
+  async sendMessage(userMessage: string): Promise<{message: string, metadata?: any}> {
     if (!userMessage.trim()) {
       throw new Error('Message cannot be empty');
     }
@@ -31,15 +37,13 @@ export class ChatService {
       };
 
       // Call the secure API route
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/rag/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: userMessage.trim(),
-          conversationHistory: this.conversationHistory,
-          context: this.currentContext
+          query: userMessage.trim()
         })
       });
 
@@ -58,10 +62,13 @@ export class ChatService {
       this.conversationHistory.push(userChatMessage);
       this.conversationHistory.push({
         role: 'assistant',
-        content: data.message
+        content: data.response
       });
 
-      return data.message;
+      return {
+        message: data.response,
+        metadata: data.metadata
+      };
 
     } catch (error) {
       console.error('Chat service error:', error);
@@ -129,10 +136,10 @@ export class ChatService {
     this.setContext(context);
     
     const introMessages = {
-      general: "Hi! I'm here to help you learn about Nguyen's background and experience. What would you like to know?",
-      skills: "I can tell you all about Nguyen's technical skills and expertise. What technologies are you interested in?",
-      projects: "Let me share details about Nguyen's innovative projects. Which one catches your attention?",
-      education: "I'd be happy to discuss Nguyen's educational journey and academic achievements. What would you like to know?"
+      general: "Hi! I'm here to help you learn about Phuoc's background and experience. What would you like to know?",
+      skills: "I can tell you all about Phuoc's technical skills and expertise. What technologies are you interested in?",
+      projects: "Let me share details about Phuoc's innovative projects. Which one catches your attention?",
+      education: "I'd be happy to discuss Phuoc's educational journey and academic achievements. What would you like to know?"
     };
 
     // Only return intro if no conversation history
@@ -146,10 +153,10 @@ export class ChatService {
   /**
    * Quick context switch with conversation continuation
    */
-  async switchContextAndAsk(context: PortfolioContext, question: string): Promise<string> {
-    this.setContext(context);
-    return this.sendMessage(question);
-  }
+  // async switchContextAndAsk(context: PortfolioContext, question: string): Promise<string> {
+  //   this.setContext(context);
+  //   return this.sendMessage(question);
+  // }
 }
 
 // Export singleton instance
