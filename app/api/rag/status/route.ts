@@ -1,1 +1,6 @@
-// Will update in the future
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function GET(_request: NextRequest) {
+  // Will update in the future
+  return NextResponse.json({ message: 'Not implemented yet' }, { status: 501 })
+}
