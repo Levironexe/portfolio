@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Send } from "lucide-react";
 import { Message } from "./types/chatbot";
 import { chatService, PortfolioContext } from "./services/chatService";
+import ReactMarkdown from 'react-markdown';
 
 interface SimpleChatBotProps {
   className?: string;
@@ -179,9 +180,23 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
                       : "bg-orange-600 text-white rounded-tr-sm"
                   }`}
                 >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                    {message.text}
-                  </p>
+                  <div className="text-sm leading-relaxed">
+                    <ReactMarkdown
+                    components={{
+                        h1: ({node, ...props}) => <h1 style={{fontSize: '18px', fontWeight: 'bold',  margin: '1em 0 0.5em 0'}} {...props} />,
+                        h2: ({node, ...props}) => <h2 style={{fontSize: '16px', fontWeight: 'bold',  margin: '2em 0 0.5em 0'}} {...props} />,
+                        h3: ({node, ...props}) => <h3 style={{fontSize: '14px', fontWeight: 'bold'}} {...props} />,
+                        ul: ({node, ...props}) => (
+                          <ul style={{
+                            listStyleType: 'disc',
+                            padding: '0.2em 0 1.2em 1.2em'
+                          }} {...props} />
+                        ),
+                      }}>
+                      {message.text}
+                    </ReactMarkdown>
+                  </div>
+                 
                   {message.sender === "bot" && message.metadata?.relevantDocuments && message.metadata.relevantDocuments > 0 && (
                     <p className="mt-4 text-[12px] px-2 py-1 w-fit rounded-full bg-neutral-200 leading-relaxed whitespace-pre-wrap">
                       Relevant documents found: {message.metadata.relevantDocuments}

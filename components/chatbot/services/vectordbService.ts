@@ -27,6 +27,7 @@ export class VectorService {
     try {
       this.collection = await this.client.getCollection({
         name: this.collectionName,
+        embeddingFunction: undefined
       });
 
       this.isInitialized = true;
@@ -83,7 +84,7 @@ export class VectorService {
       // Get all results first, then filter manually since ChromaDB doesn't support substring matching
       const results = await this.collection.query({
         queryEmbeddings: [queryEmbedding],
-        nResults: nResults * 2, // Get more results to account for filtering
+        nResults: nResults,
         include: ["documents", "distances", "metadatas"],
       });
 
@@ -180,7 +181,9 @@ export class VectorService {
       );
     }
     try {
-      this.collection.delete;
+      await this.collection.delete({
+        where: {}
+      });
     } catch (error) {
       console.log("Cannot delete collection. find vectordbService.ts", error);
     }
