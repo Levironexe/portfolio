@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { Message } from "./types/chatbot";
 import { chatService, PortfolioContext } from "./services/chatService";
 import ReactMarkdown from 'react-markdown';
+import { TextShimmer } from '@/components/motion-primitives/text-shimmer';
 
 interface SimpleChatBotProps {
   className?: string;
@@ -15,6 +16,31 @@ interface SimpleChatBotProps {
     source: string;
   }
 }
+
+const generatingWords = [
+  "Combulating...",
+  "Percolating...",
+  "Orchestrating...",
+  "Calibrating...",
+  "Synthesizing...",
+  "Triangulating...",
+  "Excavating...",
+  "Crystallizing...",
+  "Harmonizing...",
+  "Distilling...",
+  "Brewing...",
+  "Conjuring...",
+  "Weaving...",
+  "Sculpting...",
+  "Forging...",
+  "Incubating...",
+  "Materializing...",
+  "Cultivating...",
+  "Germinating...",
+  "Manifesting...",
+  "Choreographing...",
+  "Whatchamacalliting..."
+]
 
 const ChatBot: React.FC<SimpleChatBotProps> = ({
   className = "",
@@ -33,7 +59,10 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
+  function createRandomNumberGetter(): string {
+    const randomIndex = Math.floor(Math.random() * generatingWords.length);
+    return generatingWords[randomIndex];
+  }
   // Expose scrollToBottom globally for manual triggering
   useEffect(() => {
     (window as any).scrollToBottom = scrollToBottom;
@@ -218,19 +247,12 @@ const ChatBot: React.FC<SimpleChatBotProps> = ({
           {isTyping && (
             <div className="flex gap-3 justify-start">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center"></div>
-              <div className="bg-gray-100 px-4 py-2 rounded-2xl rounded-tl-sm">
-                <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div
-                    className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                    style={{ animationDelay: "0.1s" }}
-                  ></div>
-                  <div
-                    className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                    style={{ animationDelay: "0.2s" }}
-                  ></div>
-                </div>
-              </div>
+              <TextShimmer
+      duration={1.2}
+      className='flex items-center px-1 text-sm font-mono font-medium [--base-color:var(--color-black)] [--base-gradient-color:var(--color-neutral-300)] dark:[--base-color:var(--color-black)] dark:[--base-gradient-color:var(--color-neutral-300)]'
+    >
+      {createRandomNumberGetter()}
+    </TextShimmer>
             </div>
           )}
 
