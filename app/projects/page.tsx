@@ -247,20 +247,20 @@ const page = () => {
       {/* Project 1: itealab.vercel.com */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
-          visibleItems.has(0) ? "opacity-100" : "opacity-0"
+          visibleItems.has(1) ? "opacity-100" : "opacity-0"
         }`}
       >
         <div
           className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
-                          ${expandedItems.has(0) && "bg-neutral-200"}`}
-          onClick={() => toggleExpanded(0)}
-          onMouseEnter={(e) => handleMouseEnter(e, 0)}
+                          ${expandedItems.has(1) && "bg-neutral-200"}`}
+          onClick={() => toggleExpanded(1)}
+          onMouseEnter={(e) => handleMouseEnter(e, 1)}
         >
           <div className="flex">
             <ScrambleText
               text1="itealab.vercel.com"
               text2="The homepage for Itea Lab - a coding community"
-              delay={0}
+              delay={150}
               speed1={40}
               speed2={25}
               className1="font-medium"
@@ -270,7 +270,7 @@ const page = () => {
           <div className="flex-1 mx-4">
             <div
               className={`transition-all duration-1400 ease-out ${
-                expandedLines.has(0)
+                expandedLines.has(1)
                   ? "w-full bg-neutral-300 h-[0.8px]"
                   : "w-0 bg-neutral-500 h-[1.1px]"
               }`}
@@ -282,7 +282,7 @@ const page = () => {
         </div>
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            expandedItems.has(0)
+            expandedItems.has(1)
               ? "max-h-full opacity-100 blur-none"
               : "max-h-0 opacity-50 blur-[3px]"
           }`}
@@ -614,7 +614,7 @@ const page = () => {
             ></div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="text-neutral-500 font-medium">2025</div>
+            <div className="text-neutral-500 font-medium">2024</div>
           </div>
         </div>
         <div
