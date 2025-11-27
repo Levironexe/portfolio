@@ -144,10 +144,11 @@ useEffect(() => {
             <div className="text-2xl text-neutral-500 pb-4">Me</div>
             {/* main card */}
             <div
-              className="group relative h-[50vw] w-[80vw] overflow bg-white flex flex-col justify-between leading-tight"
+              className="group relative h-[50vw] w-[80vw]  bg-white flex flex-col justify-between "
               style={{ padding: "clamp(1rem, 4vw, 5rem)" }}
             >
-              {/* Animated text lines */}
+              <div className="z-10">
+{/* Animated text lines */}
               <div className="relative mb-2 overflow-hidden">
                 <span
                   className={`block transition-transform duration-650 ease-out ${
@@ -203,10 +204,12 @@ useEffect(() => {
                 </span>
               </div>
 
+              </div>
+              
               <div 
-              className={`absolute bottom-0 right-0 translate-y-2/3 translate-x-1/5 bg-red-600 border-4 rounded-full 
-                transition-all duration-600 ease-out
-                ${isLoadedWithDelay ? " h-[50vw] w-[50vw] " : " h-[0vw] w-[0vw] "}`}
+              className={`absolute bottom-0 right-0  bg-red-600 h-[50vw] w-[50vw] rounded-full 
+                transition-all duration-700 ease-in-out
+                ${isLoadedWithDelay ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
                                 style={{ transitionDelay: "520ms" }}
 ></div>
             </div>

@@ -98,7 +98,7 @@ const HorizontalScrollCarouselMobile = () => {
                 </div>
               </div>
               
-              <div className={`absolute bottom-0 right-0 translate-y-2/3 translate-x-1/5 bg-red-600 border-4 rounded-full transition-all duration-600 ease-out ${isLoadedWithDelay ? "h-[40vw] w-[40vw]" : "h-[0vw] w-[0vw]"}`} style={{ transitionDelay: "520ms" }}></div>
+              <div className={`absolute bottom-0 right-0  bg-red-600 rounded-full transition-all duration-600 ease-out ${isLoadedWithDelay ? "h-[40vw] w-[40vw]" : "h-[0vw] w-[0vw]"}`} style={{ transitionDelay: "520ms" }}></div>
             </div>
           </div>
         </div>
