@@ -173,7 +173,77 @@ const page = () => {
       />
 
       <div className="flex flex-col items-center justify-center pt-20 "></div>
-      
+            {/* Project 0: writeflow */}
+      <div
+        className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
+          visibleItems.has(0) ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
+                          ${expandedItems.has(0) && "bg-neutral-200"}`}
+          onClick={() => toggleExpanded(0)}
+          onMouseEnter={(e) => handleMouseEnter(e, 0)}
+        >
+          <div className="flex">
+            <ScrambleText
+              text1="WriteFlow"
+              text2="Google Docs AI Agent Chrome Extension"
+              delay={0}
+              speed1={40}
+              speed2={25}
+              className1="font-medium"
+              className2="text-neutral-500 hidden lg:block"
+            />
+          </div>
+          <div className="flex-1 mx-4">
+            <div
+              className={`transition-all duration-1400 ease-out ${
+                expandedLines.has(0)
+                  ? "w-full bg-neutral-300 h-[0.8px]"
+                  : "w-0 bg-neutral-500 h-[1.1px]"
+              }`}
+            ></div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-neutral-500 font-medium">End of 2025</div>
+          </div>
+        </div>
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            expandedItems.has(0)
+              ? "max-h-full opacity-100 blur-none"
+              : "max-h-0 opacity-50 blur-[3px]"
+          }`}
+        >
+          <div className="px-4 pt-4 pb-12">
+            <div className="rounded-lg space-y-2">
+              <div className="text-neutral-700 leading-loose">
+                <p className="mb-3 last:mb-0">
+                  WriteFlow is a browser extension MCP client that connects to your Google Docs to provide intelligent, context-aware document assistance. This production-scaled tool helps you work with documents faster and smarter through semantic search, natural language queries, and automatic context understanding. It features tab-aware intelligence that knows which document you're editing, RAG-powered responses using Redis vector database, and seamless Google Drive integration. Designed as both a productivity enhancer and a document intelligence platform, it provides an efficient, scalable solution for content writers, business professionals, researchers, and developers who need instant answers from their documents without manual context switching. 
+                </p>
+              </div>
+              <Link href="https://writeflow-home.vercel.app" target="_blank" className="block rounded-xl bg-white p-1 border-[1px] border-neutral-200/80">
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="rounded-[8px]"
+                >
+                  <source src="/videos/writeflow-demo-compressed.mp4" type="video/mp4" />
+                </video>
+                <div className="block w-full bg-neutral-200/80 text-center p-2 rounded-lg mt-1 font-medium text-[14px]">
+                    Visit WriteFlow
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Project 1: itealab.vercel.com */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
