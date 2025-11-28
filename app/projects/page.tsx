@@ -321,64 +321,6 @@ const page = () => {
       {/* Project 2: SentinelAI */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
-          visibleItems.has(1) ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div
-          className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
-                          ${expandedItems.has(1) && "bg-neutral-200"}`}
-          onClick={() => toggleExpanded(1)}
-          onMouseEnter={(e) => handleMouseEnter(e, 1)}
-        >
-          <div className="flex">
-            <ScrambleText
-              text1="SentinelAI"
-              text2="An AI-powered tool for auditing PCI DSS compliance"
-              delay={150}
-              speed1={40}
-              speed2={25}
-              className1="font-medium"
-              className2="text-neutral-500 hidden lg:block"
-            />
-          </div>
-          <div className="flex-1 mx-4">
-            <div
-              className={`transition-all duration-1400 ease-out ${
-                expandedLines.has(1)
-                  ? "w-full bg-neutral-300 h-[0.8px]"
-                  : "w-0 bg-neutral-500 h-[1.1px]"
-              }`}
-            ></div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="text-neutral-500 font-medium">2025</div>
-          </div>
-        </div>
-        <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            expandedItems.has(1)
-              ? "max-h-full opacity-100 blur-none"
-              : "max-h-0 opacity-50 blur-[3px]"
-          }`}
-        >
-          <div className="px-4 pt-4 pb-12">
-            <div className="rounded-lg space-y-2">
-              <div className="text-neutral-700 leading-loose">
-                <p className="mb-3 last:mb-0">
-                  SentinelAI is an AI-powered compliance automation framework designed to streamline PCI DSS v4.0 audits for financial institutions, built during the VPBank Hackathon 2025. By integrating Amazon Bedrock AI (Claude 3.5 Sonnet), AWS Config, CloudTrail, Security Hub, and Aurora PostgreSQL, it automates evidence collection, compliance evaluation, and report generation across 200+ AWS accounts.
-                </p>
-                <p className="mb-3 last:mb-0">
-                  The framework eliminates manual auditing by offering real-time dashboards, AI audit agents, cross-framework mapping, intelligent risk prioritization, and multi-format reporting. Its modular architecture includes an AI agent orchestrator, evidence collector, RAG-based knowledge base, and frontend compliance portal. With up to 90% faster evidence collection and 80% less prep time, SentinelAI demonstrates enterprise scalability, cost savings, and adaptive learning for long-term compliance management.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 3: LongChau-PMS */}
-      <div
-        className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
           visibleItems.has(2) ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -390,9 +332,9 @@ const page = () => {
         >
           <div className="flex">
             <ScrambleText
-              text1="LongChau-PMS"
-              text2="A management system solution for Long Chau Pharmacy"
-              delay={300}
+              text1="SentinelAI"
+              text2="An AI-powered tool for auditing PCI DSS compliance"
+              delay={150}
               speed1={40}
               speed2={25}
               className1="font-medium"
@@ -423,7 +365,11 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  A proof-of-concept full-stack pharmacy platform built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.
+                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
+                  SentinelAI is an AI-powered compliance automation framework designed to streamline PCI DSS v4.0 audits for financial institutions, built during the VPBank Hackathon 2025. By integrating Amazon Bedrock AI (Claude 3.5 Sonnet), AWS Config, CloudTrail, Security Hub, and Aurora PostgreSQL, it automates evidence collection, compliance evaluation, and report generation across 200+ AWS accounts.
+                </p>
+                <p className="mb-3 last:mb-0">
+                  The framework eliminates manual auditing by offering real-time dashboards, AI audit agents, cross-framework mapping, intelligent risk prioritization, and multi-format reporting. Its modular architecture includes an AI agent orchestrator, evidence collector, RAG-based knowledge base, and frontend compliance portal. With up to 90% faster evidence collection and 80% less prep time, SentinelAI demonstrates enterprise scalability, cost savings, and adaptive learning for long-term compliance management.
                 </p>
               </div>
             </div>
@@ -431,7 +377,7 @@ const page = () => {
         </div>
       </div>
 
-      {/* Project 4: carbonio */}
+      {/* Project 3: LongChau-PMS */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
           visibleItems.has(3) ? "opacity-100" : "opacity-0"
@@ -445,9 +391,9 @@ const page = () => {
         >
           <div className="flex">
             <ScrambleText
-              text1="carbonio"
-              text2="A project for BREAKOUT Hackathon by Colosseum, 2025"
-              delay={450}
+              text1="LongChau-PMS"
+              text2="A management system solution for Long Chau Pharmacy"
+              delay={300}
               speed1={40}
               speed2={25}
               className1="font-medium"
@@ -477,13 +423,70 @@ const page = () => {
           <div className="px-4 pt-4 pb-12">
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
+                <p className="mb-3 last:mb-0">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
+                  A proof-of-concept full-stack pharmacy platform built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Project 4: carbonio */}
+      <div
+        className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
+          visibleItems.has(4) ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
+                          ${expandedItems.has(4) && "bg-neutral-200"}`}
+          onClick={() => toggleExpanded(4)}
+          onMouseEnter={(e) => handleMouseEnter(e, 4)}
+        >
+          <div className="flex">
+            <ScrambleText
+              text1="carbonio"
+              text2="A project for BREAKOUT Hackathon by Colosseum, 2025"
+              delay={450}
+              speed1={40}
+              speed2={25}
+              className1="font-medium"
+              className2="text-neutral-500 hidden lg:block"
+            />
+          </div>
+          <div className="flex-1 mx-4">
+            <div
+              className={`transition-all duration-1400 ease-out ${
+                expandedLines.has(4)
+                  ? "w-full bg-neutral-300 h-[0.8px]"
+                  : "w-0 bg-neutral-500 h-[1.1px]"
+              }`}
+            ></div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-neutral-500 font-medium">2025</div>
+          </div>
+        </div>
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            expandedItems.has(4)
+              ? "max-h-full opacity-100 blur-none"
+              : "max-h-0 opacity-50 blur-[3px]"
+          }`}
+        >
+          <div className="px-4 pt-4 pb-12">
+            <div className="rounded-lg space-y-2">
+              <div className="text-neutral-700 leading-loose">
                 <p className="mb-4 last:mb-0">
-                  Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts. It enables companies to register, upload carbon data, and undergo verification by third-party auditors, 
-                  while consumers can scan QR codes to view verified footprints. 
-                  Built with Next.js, TypeScript, Express, and Anchor smart contracts, 
-                  Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex. 
+                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
+                  Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts. It enables companies to register, upload carbon data, and undergo verification by third-party auditors,
+                  while consumers can scan QR codes to view verified footprints.
+                  Built with Next.js, TypeScript, Express, and Anchor smart contracts,
+                  Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex.
                   By offering portals for consumers, companies, and auditors, it fosters a multi-user ecosystem that tracks and incentivizes emission reduction.
-                  You can see the <span><Link href="https://www.youtube.com/watch?v=zw4Lvjk2zxQ&t=13s" target='_blank' className="text-neutral-500 hover:underline">Demo Video</Link> </span> or visit 
+                  You can see the <span><Link href="https://www.youtube.com/watch?v=zw4Lvjk2zxQ&t=13s" target='_blank' className="text-neutral-500 hover:underline">Demo Video</Link> </span> or visit
                   my <span><Link href="https://github.com/levironexe/carbonio" target='_blank' className="text-neutral-500 hover:underline">GitHub</Link> to learn about the project.</span>
                 </p>
                 </div>
@@ -529,61 +532,6 @@ const page = () => {
       {/* Project 5: ArtChainAI */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
-          visibleItems.has(4) ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div
-          className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
-                          ${expandedItems.has(4) && "bg-neutral-200"}`}
-          onClick={() => toggleExpanded(4)}
-          onMouseEnter={(e) => handleMouseEnter(e, 4)}
-        >
-          <div className="flex">
-            <ScrambleText
-              text1="ArtChainAI"
-              text2="An AI-powered platform for Sui Agent Typhoon Hackathon 2025"
-              delay={600}
-              speed1={40}
-              speed2={25}
-              className1="font-medium"
-              className2="text-neutral-500 hidden lg:block"
-            />
-          </div>
-          <div className="flex-1 mx-4">
-            <div
-              className={`transition-all duration-1400 ease-out ${
-                expandedLines.has(4)
-                  ? "w-full bg-neutral-300 h-[0.8px]"
-                  : "w-0 bg-neutral-500 h-[1.1px]"
-              }`}
-            ></div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="text-neutral-500 font-medium">2025</div>
-          </div>
-        </div>
-        <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            expandedItems.has(4)
-              ? "max-h-full opacity-100 blur-none"
-              : "max-h-0 opacity-50 blur-[3px]"
-          }`}
-        >
-          <div className="px-4 pt-4 pb-12">
-            <div className="rounded-lg space-y-2">
-              <div className="text-neutral-700 leading-loose">
-                <p className="mb-3 last:mb-0">
-                  ArtChain AI combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 6: GoBuy */}
-      <div
-        className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
           visibleItems.has(5) ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -595,9 +543,9 @@ const page = () => {
         >
           <div className="flex">
             <ScrambleText
-              text1="GoBuy"
-              text2="An SPA e-commercial web app in Vue3"
-              delay={750}
+              text1="ArtChainAI"
+              text2="An AI-powered platform for Sui Agent Typhoon Hackathon 2025"
+              delay={600}
               speed1={40}
               speed2={25}
               className1="font-medium"
@@ -614,7 +562,7 @@ const page = () => {
             ></div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="text-neutral-500 font-medium">2024</div>
+            <div className="text-neutral-500 font-medium">2025</div>
           </div>
         </div>
         <div
@@ -628,16 +576,8 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  GoBuy is a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration).
-                </p>
-                <p className="mb-3 last:mb-0">
-                  The platform provides full e-commerce functionality, including product listings with filtering, shopping cart management, checkout, and seller dashboards. It features user authentication via email/password, magic links, and Google OAuth, along with customizable user profiles.
-                </p>
-                <p className="mb-3 last:mb-0">
-                  A strong emphasis on modern UI/UX ensures a responsive, polished experience with animations, loading skeletons, and instant translations. The backend REST API supports secure JWT authentication, Supabase-managed data, and smart caching for performance.
-                </p>
-                <p className="mb-3 last:mb-0">
-                  Deployed on Vercel (frontend) and Render (backend), GoBuy demonstrates a scalable architecture for international online marketplaces, balancing accessibility, performance, and security.
+                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
+                  ArtChain AI combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.
                 </p>
               </div>
             </div>
@@ -645,7 +585,7 @@ const page = () => {
         </div>
       </div>
 
-      {/* Project 7: BlockScan */}
+      {/* Project 6: GoBuy */}
       <div
         className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
           visibleItems.has(6) ? "opacity-100" : "opacity-0"
@@ -659,9 +599,9 @@ const page = () => {
         >
           <div className="flex">
             <ScrambleText
-              text1="BlockScan"
-              text2="A platform for auditing Solidity smart contracts"
-              delay={900}
+              text1="GoBuy"
+              text2="An SPA e-commercial web app in Vue3"
+              delay={750}
               speed1={40}
               speed2={25}
               className1="font-medium"
@@ -692,6 +632,72 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
+                  GoBuy is a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration).
+                </p>
+                <p className="mb-3 last:mb-0">
+                  The platform provides full e-commerce functionality, including product listings with filtering, shopping cart management, checkout, and seller dashboards. It features user authentication via email/password, magic links, and Google OAuth, along with customizable user profiles.
+                </p>
+                <p className="mb-3 last:mb-0">
+                  A strong emphasis on modern UI/UX ensures a responsive, polished experience with animations, loading skeletons, and instant translations. The backend REST API supports secure JWT authentication, Supabase-managed data, and smart caching for performance.
+                </p>
+                <p className="mb-3 last:mb-0">
+                  Deployed on Vercel (frontend) and Render (backend), GoBuy demonstrates a scalable architecture for international online marketplaces, balancing accessibility, performance, and security.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Project 7: BlockScan */}
+      <div
+        className={`max-w-4xl mx-auto flex flex-col gap-0 px-6 md:px-8 lg:px-10 space-y-2 transition-all duration-300 ease-out ${
+          visibleItems.has(7) ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className={`py-4 px-4 flex justify-between items-center hover:bg-neutral-200 rounded-xl cursor-pointer transition-colors duration-200
+                          ${expandedItems.has(7) && "bg-neutral-200"}`}
+          onClick={() => toggleExpanded(7)}
+          onMouseEnter={(e) => handleMouseEnter(e, 7)}
+        >
+          <div className="flex">
+            <ScrambleText
+              text1="BlockScan"
+              text2="A platform for auditing Solidity smart contracts"
+              delay={900}
+              speed1={40}
+              speed2={25}
+              className1="font-medium"
+              className2="text-neutral-500 hidden lg:block"
+            />
+          </div>
+          <div className="flex-1 mx-4">
+            <div
+              className={`transition-all duration-1400 ease-out ${
+                expandedLines.has(7)
+                  ? "w-full bg-neutral-300 h-[0.8px]"
+                  : "w-0 bg-neutral-500 h-[1.1px]"
+              }`}
+            ></div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-neutral-500 font-medium">2024</div>
+          </div>
+        </div>
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            expandedItems.has(7)
+              ? "max-h-full opacity-100 blur-none"
+              : "max-h-0 opacity-50 blur-[3px]"
+          }`}
+        >
+          <div className="px-4 pt-4 pb-12">
+            <div className="rounded-lg space-y-2">
+              <div className="text-neutral-700 leading-loose">
+                <p className="mb-3 last:mb-0">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
                   BlockScan is a web-based platform focused on strengthening blockchain security by providing automated smart contract auditing tools. It leverages the Slither static analysis framework to detect vulnerabilities such as reentrancy, unchecked calls, and integer overflow. The system translates raw Slither output into user-friendly audit reports, complete with severity ratings and remediation guidance.
                 </p>
                 <p className="mb-3 last:mb-0">
