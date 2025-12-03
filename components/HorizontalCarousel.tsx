@@ -215,15 +215,15 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Card 2 - Background */}
+          {/* Card 2 - About */}
           <div
             style={{ fontSize: "5vw" }}
             className={`text-[#0a0a0a] relative cursor-pointer ${isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"} transition-opacity duration-1100`}
           >
-            <div className="text-2xl text-neutral-500 pb-4">Background</div>
+            <div className="text-2xl text-neutral-500 pb-4">About</div>
             {/* main card */}
             <Link
-              href={"/background"}
+              href={"/about"}
               className="relative h-[50vw] w-[80vw] bg-white flex flex-col justify-center z-10"
             >
               <div className="overflow-hidden flex flex-col justify-center items-center z-20">

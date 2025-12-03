@@ -47,3 +47,11 @@ body::-webkit-scrollbar {
 *::-webkit-scrollbar {
   display: none;
 }
+
+.gallery-group:hover .gallery-image {
+  @apply grayscale blur-[3px] transition-all duration-500;
+}
+
+.gallery-group:hover .gallery-image:hover {
+  @apply grayscale-0 blur-none;
+}

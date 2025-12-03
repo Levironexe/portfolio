@@ -365,8 +365,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
-                  SentinelAI is an AI-powered compliance automation framework designed to streamline PCI DSS v4.0 audits for financial institutions, built during the VPBank Hackathon 2025. By integrating Amazon Bedrock AI (Claude 3.5 Sonnet), AWS Config, CloudTrail, Security Hub, and Aurora PostgreSQL, it automates evidence collection, compliance evaluation, and report generation across 200+ AWS accounts.
+                  SentinelAI is an AI-powered compliance automation framework designed to streamline PCI DSS v4.0 audits for financial institutions, developed as a hackathon project during the VPBank Hackathon 2025. By integrating Amazon Bedrock AI (Claude 3.5 Sonnet), AWS Config, CloudTrail, Security Hub, and Aurora PostgreSQL, it automates evidence collection, compliance evaluation, and report generation across 200+ AWS accounts.
                 </p>
                 <p className="mb-3 last:mb-0">
                   The framework eliminates manual auditing by offering real-time dashboards, AI audit agents, cross-framework mapping, intelligent risk prioritization, and multi-format reporting. Its modular architecture includes an AI agent orchestrator, evidence collector, RAG-based knowledge base, and frontend compliance portal. With up to 90% faster evidence collection and 80% less prep time, SentinelAI demonstrates enterprise scalability, cost savings, and adaptive learning for long-term compliance management.
@@ -424,8 +423,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
-                  A proof-of-concept full-stack pharmacy platform built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.
+                  A proof-of-concept full-stack pharmacy platform developed as a university project, built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.
                 </p>
               </div>
             </div>
@@ -480,8 +478,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-4 last:mb-0">
-                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
-                  Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts. It enables companies to register, upload carbon data, and undergo verification by third-party auditors,
+                  Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts, developed as a hackathon project for BREAKOUT Hackathon by Colosseum. It enables companies to register, upload carbon data, and undergo verification by third-party auditors,
                   while consumers can scan QR codes to view verified footprints.
                   Built with Next.js, TypeScript, Express, and Anchor smart contracts,
                   Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex.
@@ -576,8 +573,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  <span className="inline-block bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium mr-2">Hackathon Project</span>
-                  ArtChain AI combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.
+                  ArtChain AI is a hackathon project developed for the Sui Agent Typhoon Hackathon 2025 that combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.
                 </p>
               </div>
             </div>
@@ -632,8 +628,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
-                  GoBuy is a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration).
+                  GoBuy is a university project that presents a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration).
                 </p>
                 <p className="mb-3 last:mb-0">
                   The platform provides full e-commerce functionality, including product listings with filtering, shopping cart management, checkout, and seller dashboards. It features user authentication via email/password, magic links, and Google OAuth, along with customizable user profiles.
@@ -697,8 +692,7 @@ const page = () => {
             <div className="rounded-lg space-y-2">
               <div className="text-neutral-700 leading-loose">
                 <p className="mb-3 last:mb-0">
-                  <span className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium mr-2">University Project</span>
-                  BlockScan is a web-based platform focused on strengthening blockchain security by providing automated smart contract auditing tools. It leverages the Slither static analysis framework to detect vulnerabilities such as reentrancy, unchecked calls, and integer overflow. The system translates raw Slither output into user-friendly audit reports, complete with severity ratings and remediation guidance.
+                  BlockScan is a university project that presents a web-based platform focused on strengthening blockchain security by providing automated smart contract auditing tools. It leverages the Slither static analysis framework to detect vulnerabilities such as reentrancy, unchecked calls, and integer overflow. The system translates raw Slither output into user-friendly audit reports, complete with severity ratings and remediation guidance.
                 </p>
                 <p className="mb-3 last:mb-0">
                   The platform features a dashboard interface that gives users contract overviews, risk assessments, token details, and downloadable PDF reports. It also provides historical audit tracking, making it easy to compare improvements over time. Built with Next.js, Node.js, Supabase, and TailwindCSS, BlockScan offers both beginner-friendly usability and professional-grade analysis for developers and businesses deploying Solidity contracts.
