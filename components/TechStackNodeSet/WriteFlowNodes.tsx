@@ -97,7 +97,7 @@ export default function WriteFlowNodes() {
       >
         <Controls />
         {/* <MiniMap />         */}
-        <Background variant="dots" gap={12} size={1} className='rounded-xl border border-neutral-300 p-1'/>
+        <Background gap={12} size={1} className='rounded-xl border border-neutral-300 p-1'/>
       </ReactFlow>
     </div>
   );

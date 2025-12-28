@@ -210,6 +210,7 @@ const Page = () => {
               </h2>
 
               <div className="flex flex-col gap-5">
+                <p>Having a sip of coffee. wait bro</p>
                 <TechStackNode></TechStackNode>
               </div>
             </div>
