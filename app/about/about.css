@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
   .gallery-group {
     /* exported wrapper class (no extra rules required here) */

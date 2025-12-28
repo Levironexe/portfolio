@@ -107,7 +107,7 @@ const HorizontalScrollCarouselMobile = () => {
         <div className={`relative transition-opacity duration-1100 ${isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"}`}>
           <div className="text-base text-neutral-500 mb-3">About</div>
           
-          <Link href="/About" className="text-[#0a0a0a] relative cursor-pointer block" style={{ width: "80vw" }}>
+          <Link href="/about" className="text-[#0a0a0a] relative cursor-pointer block" style={{ width: "80vw" }}>
             <div 
               className="relative bg-white flex flex-col justify-center z-10 overflow-hidden"
               style={{ height: "80vw" }}

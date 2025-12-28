@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Smile, SquareArrowOutUpRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import TechStackNode from "@/components/TechStackNodeSet/WriteFlowNodes";
 import "./about.css";
 
 const Page = () => {
@@ -122,7 +123,7 @@ const Page = () => {
       ref={containerRef}
       className="bg-neutral-200 w-full min-h-screen py-[calc(20vh+21.875px)] text-[#0a0a0a] -tracking-[0.4px] selection:bg-red-600 selection:text-white px-6 md:px-8 lg:px-10 relative"
     >
-      <div
+      {/* <div
         className={`absolute hidden md:block w-4 h-4 bg-red-600 rounded-full pointer-events-none transition-all duration-300 ease-out z-50 ${
           isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"
         }`}
@@ -131,13 +132,11 @@ const Page = () => {
           top: `${dotPosition.y}px`,
           transform: "translate(-50%, -50%)",
         }}
-      />
+      /> */}
 
       <div className="max-w-5xl mx-auto">
         <div
-          className={`bg-white p-20 md:p-30 flex flex-col justify-center text-[20px] font-normal leading-loose  ${
-            isLoadedImmediate ? "scale-100 opacity-100" : "scale-20 opacity-0"
-          } duration-600 transition-all ease-out`}
+          className={`bg-white p-20 md:p-30 flex flex-col justify-center text-[20px] font-normal leading-loose  `}
           style={{ wordSpacing: "0.1em" }}
         >
           <div
@@ -155,6 +154,7 @@ const Page = () => {
               >
                 Hi
               </h2>
+
               <div className="flex flex-col gap-5">
                 <p className="font-normal">
                   I'm Nguyen Thien Phuoc, known as Leviron. I'm a Computer
@@ -206,27 +206,11 @@ const Page = () => {
                 }}
                 className="text-xl md:text-2xl font-medium mb-5"
               >
-                Faminilar Technology Stack
+                Faminilar Technology Stacks
               </h2>
+
               <div className="flex flex-col gap-5">
-                <p className="font-normal">
-                  I completed my secondary education at{" "}
-                  <span className="text-neutral-500 inline-flex items-center">
-                    <Link
-                      href={"https://lhbs.edu.vn/"}
-                      target="_blank"
-                      className="inline-flex items-center"
-                    >
-                      Lac Hong Bilingual School
-                      <SquareArrowOutUpRight className="h-4 w-4 md:h-5 md:w-5 ml-1" />
-                    </Link>
-                  </span>
-                  , where I maintained a consistent GPA of 8.8, 9.5, and 9.3
-                  across my three years of study.
-                </p>
-                <p className="font-normal">
-                  Nigag
-                </p>
+                <TechStackNode></TechStackNode>
               </div>
             </div>
             {/* Section 2: Recent Background */}
@@ -309,7 +293,9 @@ const Page = () => {
                   achievements reflect my commitment to both scholarly and
                   extracurricular pursuits.
                 </p>
+
               </div>
+
             </div>
           </div>
         </div>

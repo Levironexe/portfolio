@@ -1,0 +1,63 @@
+{
+  "services": [
+    {
+      "name": "Google OAuth 2.0",
+      "url": "https://developers.google.com/identity/protocols/oauth2",
+      "description": "Authentication and authorization service",
+      "category": "auth",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+    },
+    {
+      "name": "Google Docs API",
+      "url": "https://developers.google.com/docs/api",
+      "description": "Google Docs integration and manipulation",
+      "category": "integration",
+      "icon": "https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png"
+    },
+    {
+      "name": "OpenAI",
+      "url": "https://platform.openai.com/",
+      "description": "GPT models and AI services",
+      "category": "llm",
+      "models": ["GPT-4", "GPT-3.5", "GPT-4o"],
+      "icon": "https://static.openai.com/apple-touch-icon.png"
+    },
+    {
+      "name": "Anthropic Claude",
+      "url": "https://www.anthropic.com/claude",
+      "description": "Claude AI assistant models",
+      "category": "llm",
+      "models": ["Claude 3.5 Sonnet", "Claude 3 Opus", "Claude 3 Haiku"],
+      "icon": "https://www.anthropic.com/_next/image?url=%2Fimages%2Ficons%2Fandroid-chrome-512x512.png&w=64&q=75"
+    },
+    {
+      "name": "Google Gemini",
+      "url": "https://ai.google.dev/",
+      "description": "Google's multimodal AI models",
+      "category": "llm",
+      "models": ["Gemini Pro", "Gemini Ultra", "Gemini Flash"],
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+    },
+    {
+      "name": "Vercel",
+      "url": "https://vercel.com/",
+      "description": "Frontend cloud platform for deployment and hosting",
+      "category": "hosting",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+    },
+    {
+      "name": "AWS",
+      "url": "https://aws.amazon.com/",
+      "description": "Amazon Web Services - Cloud computing platform",
+      "category": "cloud",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    },
+    {
+      "name": "Azure",
+      "url": "https://azure.microsoft.com/",
+      "description": "Microsoft Azure - Cloud computing services",
+      "category": "cloud",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+    }
+  ]
+}
