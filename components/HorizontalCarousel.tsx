@@ -227,30 +227,23 @@ useEffect(() => {
               className="relative h-[50vw] w-[80vw] bg-white flex flex-col justify-center z-10"
             >
               <div className="overflow-hidden flex flex-col justify-center items-center z-20">
-                <motion.p
-                  style={{ x: textMoveX, fontSize: "12vw" }}
-                  className="uppercase leading-none"
+                <p
+                  style={{ fontSize: "28vw" }}
+                  className="uppercase leading-none font-medium"
                 >
-                  Swinburne
-                </motion.p>
-                <motion.p
-                  style={{ x: textMoveX2, fontSize: "12vw" }}
-                  className="uppercase leading-none"
+                  About
+                </p>                <p
+                  style={{ fontSize: "28vw" }}
+                  className="uppercase leading-none font-medium"
                 >
-                  Swinburne
-                </motion.p>
-                <motion.p
-                  style={{ x: textMoveX, fontSize: "12vw" }}
-                  className="text-[250px] uppercase leading-none"
+                  About
+                </p>                <p
+                  style={{ fontSize: "28vw" }}
+                  className="uppercase leading-none font-medium"
                 >
-                  Swinburne
-                </motion.p>
-                <motion.p
-                  style={{ x: textMoveX2, fontSize: "12vw" }}
-                  className="text-[250px] uppercase leading-none"
-                >
-                  Swinburne
-                </motion.p>
+                  About
+                </p>
+
               </div>
 
               {/* Colored divs outside main card */}
