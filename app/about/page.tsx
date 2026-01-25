@@ -2,18 +2,29 @@
 import Link from "next/link";
 import { Smile, SquareArrowOutUpRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import TechStackNode from "@/components/TechStackNodeSet/WriteFlowNodes";
+import {
+  WriteFlowNodes,
+  CarbonioNodes,
+  SentinelAINodes,
+  GoBuyNodes,
+} from "@/components/TechStackNodeSet/index";
+import { motion, AnimatePresence } from "framer-motion";
 import "./about.css";
 
 const Page = () => {
   const [isLoadedImmediate, setIsLoadedImmediate] = useState(false);
   const [isLoadedWithDelay, setIsLoadedWithDelay] = useState(false);
+  const [isToggled, setIsToggled] = useState(false);
   const [isLoadedWithMoreDelay, setIsLoadedWithMoreDelay] = useState(false);
   const [activeHeader, setActiveHeader] = useState<number | null>(0);
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const [projectChosen, setProjectChosen] = useState<string | null>(
+    "WriteFlow",
+  );
 
+  const projects = ["SentinelAI", "carbonio", "WriteFlow", "GoBuy"];
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoadedImmediate(true);
@@ -198,22 +209,6 @@ const Page = () => {
                 Me
               </p>
             </div>
-{/* Section 3: High School */}
-            <div className="pb-12 md:pb-16">
-              <h2
-                ref={(el) => {
-                  headerRefs.current[2] = el;
-                }}
-                className="text-xl md:text-2xl font-medium mb-5"
-              >
-                Faminilar Technology Stacks
-              </h2>
-
-              <div className="flex flex-col gap-5">
-                <p>Having a sip of coffee. wait bro</p>
-                <TechStackNode></TechStackNode>
-              </div>
-            </div>
             {/* Section 2: Recent Background */}
             <div className="pb-12 md:pb-16">
               <h2
@@ -294,9 +289,74 @@ const Page = () => {
                   achievements reflect my commitment to both scholarly and
                   extracurricular pursuits.
                 </p>
-
               </div>
+            </div>
+            {/* Section 3: High School */}
+            <div className="pb-12 md:pb-16">
+              <h2
+                ref={(el) => {
+                  headerRefs.current[2] = el;
+                }}
+                className="text-xl md:text-2xl font-medium mb-5"
+              >
+                Faminilar Technology Stacks
+              </h2>
 
+              <div className="flex flex-col gap-5">
+                <p>
+                  Here are the technology stack of one of my remarkable projects
+                </p>
+
+                <div className="flex gap-3">
+                  <p className="">
+                    Current project&nbsp;
+                    <span
+                      onClick={() => setIsToggled(!isToggled)}
+                      className={`cursor-pointer ml-2 ${isToggled ? "text-red-600 " : "text-neutral-500 "}`}
+                    >
+                      {projectChosen}
+                    </span>
+                  </p>
+                  <AnimatePresence>
+                    {isToggled && (
+                      <motion.div className="flex gap-3">
+                        {projects
+                          .filter((project) => project != projectChosen)
+                          .map((project, index) => (
+                            <motion.p
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -20 }}
+                              transition={{
+                                duration: 0.25,
+                                ease: "easeOut",
+                                delay: index * 0.1,
+                              }}
+                              onClick={() => {
+                                setProjectChosen(project);
+                                setIsToggled(!isToggled);
+                              }}
+                              className="cursor-pointer text-neutral-400 hover:text-neutral-500 duration-250 transition-all ease-out"
+                            >
+                              {project}
+                            </motion.p>
+                          ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {projectChosen === "WriteFlow" ? (
+                  <WriteFlowNodes />
+                ) : projectChosen === "SentinelAI" ? (
+                  <SentinelAINodes />
+                ) : projectChosen === "carbonio" ? (
+                  <CarbonioNodes />
+                ) : (
+                  <GoBuyNodes />
+                )}
+              </div>
             </div>
           </div>
         </div>

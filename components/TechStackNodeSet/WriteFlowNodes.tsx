@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useCallback, useState } from 'react';
-import techStackData from './techStackData.json';
+import techStackData from './data/techStackData.json';
 
 type TechItem = {
   label: string;
