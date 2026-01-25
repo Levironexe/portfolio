@@ -5,6 +5,12 @@ import { ScrambleText } from "../../components/ui/scramble-text";
 import { ArrowUpRight, GithubIcon } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import projectsData from "./projects.json"; // Adjust path as needed
+import {
+  WriteFlowNodes,
+  SentinelAINodes,
+  CarbonioNodes,
+  GoBuyNodes,
+} from "@/components/TechStackNodeSet";
 
 interface Project {
   name: string;
@@ -223,7 +229,7 @@ const page = () => {
               <ScrambleText
                 text1={`${project.name}`}
                 text2={`${project.description}`}
-                delay={index*150}
+                delay={index * 150}
                 speed1={40}
                 speed2={25}
                 className1="font-medium"
@@ -309,6 +315,39 @@ const page = () => {
                     </div>
                   </Link>
                 )}
+                <div>
+                  {project.name === "WriteFlow" ? (
+                    <div className="">
+                      <WriteFlowNodes />
+                      <p className="text-neutral-500 text-center mt-2">
+                        System Architecture
+                      </p>
+                    </div>
+                  ) : project.name === "SentinelAI" ? (
+                    <div className="">
+                      <SentinelAINodes />
+                      <p className="text-neutral-500 text-center mt-2">
+                        System Architecture
+                      </p>
+                    </div>
+                  ) : project.name === "carbonio" ? (
+                    <div className="">
+                      <CarbonioNodes />
+                      <p className="text-neutral-500 text-center mt-2">
+                        System Architecture
+                      </p>
+                    </div>
+                  ) : project.name === "GoBuy" ? (
+                    <div className="">
+                      <GoBuyNodes />
+                      <p className="text-neutral-500 text-center mt-2">
+                        System Architecture
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
           </div>
