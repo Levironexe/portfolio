@@ -105,7 +105,7 @@ const [isLoadedImmediate, setIsLoadedImmediate] = useState(false);
   );
 
   const textMoveX7 = useTransform(scrollYProgress, [0, 1], ["110vw", "-150vw"]);
-  const textMoveX8 = useTransform(scrollYProgress, [0, 0.25, 1], ["45vw", "0vw", "0vw"]);
+  const textMoveX8 = useTransform(scrollYProgress, [0, 0.32, 1], ["45vw", "0vw", "0vw"]);
 
   useEffect(() => {
   // Animation with 500ms delay
