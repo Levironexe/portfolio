@@ -16,6 +16,8 @@ const HorizontalScrollCarousel = () => {
 const [isLoadedWithDelay, setIsLoadedWithDelay] = useState(false);
 const [isLoadedWithMoreDelay, setIsLoadedWithMoreDelay] = useState(false);
 const [isLoadedImmediate, setIsLoadedImmediate] = useState(false);
+  const prevScrollY = useRef(0);
+
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -102,7 +104,8 @@ const [isLoadedImmediate, setIsLoadedImmediate] = useState(false);
     ([base, offset]) => `calc(${base} + ${offset})`
   );
 
-  const textMoveX7 = useTransform(scrollYProgress, [0, 1], ["110vw", "-150vw"]); // const sectionColor = [
+  const textMoveX7 = useTransform(scrollYProgress, [0, 1], ["110vw", "-150vw"]);
+  const textMoveX8 = useTransform(scrollYProgress, [0, 0.25, 1], ["45vw", "0vw", "0vw"]);
 
   useEffect(() => {
   // Animation with 500ms delay
@@ -151,7 +154,7 @@ useEffect(() => {
 {/* Animated text lines */}
               <div className="relative mb-2 overflow-hidden">
                 <span
-                  className={`block transition-transform duration-650 ease-out ${
+                  className={`block transition-transform duration-650 ease-out font-medium ${
                     isLoadedWithDelay ? "translate-y-0" : "translate-y-full"
                   }`}
                   style={{ transitionDelay: "0ms" }}
@@ -162,7 +165,7 @@ useEffect(() => {
 
               <div className="relative mb-2 overflow-hidden">
                 <span
-                  className={`block transition-transform duration-700 ease-out ${
+                  className={`block transition-transform duration-700 ease-out ml-20 font-medium ${
                     isLoadedWithDelay ? "translate-y-0" : "translate-y-full"
                   }`}
                   style={{ transitionDelay: "130ms" }}
@@ -173,7 +176,7 @@ useEffect(() => {
 
               <div className="relative mb-2 overflow-hidden">
                 <span
-                  className={`block transition-transform duration-700 ease-out ${
+                  className={`block transition-transform duration-700 ease-out font-medium ${
                     isLoadedWithDelay ? "translate-y-0" : "translate-y-full"
                   }`}
                   style={{ transitionDelay: "260ms" }}
@@ -184,18 +187,18 @@ useEffect(() => {
 
               <div className="relative mb-2 overflow-hidden">
                 <span
-                  className={`block transition-transform duration-700 ease-out ${
+                  className={`block transition-transform duration-700 ease-out ml-40 font-medium ${
                     isLoadedWithDelay ? "translate-y-0" : "translate-y-full"
                   }`}
                   style={{ transitionDelay: "390ms" }}
                 >
-                  building AI-powered
+                  building LLM-powered
                 </span>
               </div>
 
               <div className="relative mb-2 overflow-hidden">
                 <span
-                  className={`block transition-transform duration-700 ease-out ${
+                  className={`block transition-transform duration-700 ease-out ml-10 font-medium ${
                     isLoadedWithDelay ? "translate-y-0" : "translate-y-full"
                   }`}
                   style={{ transitionDelay: "520ms" }}
@@ -207,8 +210,8 @@ useEffect(() => {
               </div>
               
               <div 
-              className={`absolute bottom-0 right-0  bg-red-600 h-[50vw] w-[50vw] rounded-full 
-                transition-all duration-700 ease-in-out
+              className={`absolute bottom-0 right-0 h-[50vw] w-[50vw] rounded-full z-50
+                transition-all duration-700 ease-in-out backdrop-invert
                 ${isLoadedWithDelay ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
                                 style={{ transitionDelay: "520ms" }}
 ></div>
@@ -218,58 +221,36 @@ useEffect(() => {
           {/* Card 2 - About */}
           <div
             style={{ fontSize: "5vw" }}
-            className={`text-[#0a0a0a] relative cursor-pointer ${isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"} transition-opacity duration-1100`}
+            className={`text-[#0a0a0a]  relative cursor-pointer ${isLoadedWithMoreDelay ? "opacity-100" : "opacity-0"} transition-opacity duration-1100`}
           >
-            <div className="text-2xl text-neutral-500 pb-4">About</div>
+            <div className="text-2xl  text-neutral-500 pb-4">About me</div>
             {/* main card */}
             <Link
               href={"/about"}
-              className="relative h-[50vw] w-[80vw] bg-white flex flex-col justify-center z-10"
+              className="group relative h-[50vw] w-[80vw] bg-white text-[#0a0a0a] leading-none flex items-center justify-end overflow-x-clip"
+              style={{
+                fontSize: "45vw",
+              }}
             >
-              <div className="overflow-hidden flex flex-col justify-center items-center z-20">
-                <p
-                  style={{ fontSize: "28vw" }}
-                  className="uppercase leading-none font-medium"
-                >
-                  About
-                </p>                <p
-                  style={{ fontSize: "28vw" }}
-                  className="uppercase leading-none font-medium"
-                >
-                  About
-                </p>                <p
-                  style={{ fontSize: "28vw" }}
-                  className="uppercase leading-none font-medium"
-                >
-                  About
-                </p>
-
-              </div>
-
-              {/* Colored divs outside main card */}
-              <div className="absolute right-0 top-0 h-[60vw] w-[20vw] flex flex-col">
+              <motion.div
+                style={{ x: textMoveX8 }}
+                className="flex gap-10 items-center"
+              >
+                <motion.p>AM</motion.p>
                 <motion.div
-                  style={{ flex: flexBlack, zIndex: "20" }}
-                  className="bg-[#0a0a0a] backdrop-invert mix-blend-difference"
-                ></motion.div>
-                <motion.div
-                  style={{ flex: flexRed }}
-                  className="bg-red-600 relative z-0"
-                >
-                  {/* Triangle cutout at bottom */}
-                  <div
-                    className="absolute -bottom-px left-0 w-full h-16 bg-neutral-200"
-                    style={{ clipPath: "polygon(0% 100%, 100% 100%, 50% 0%)" }}
-                  ></div>
-                </motion.div>
-              </div>
+              className={` h-[50vw] w-[50vw] rounded-full z-50 bg-red-600
+                transition-all duration-700 ease-in-out
+                `}
+></motion.div>
+              </motion.div>
+
             </Link>
           </div>
 
           {/* Card 3 - Skills */}
           <div className="relative overflow-hidden">
             <div className="text-2xl text-neutral-500 pb-4">
-              Skills & achievements
+              Ask Anything
             </div>
             <Link
               href={"/skills-and-achievements"}
@@ -279,13 +260,13 @@ useEffect(() => {
               <motion.p
                 style={{
                   x: textMoveX5WithVelocity,
-                  fontSize: "40vw",
+                  fontSize: "45vw",
                 }}
                 className="block"
               >
-                Skills
+                Ask
               </motion.p>
-              <motion.p
+              {/* <motion.p
                 style={{
                   x: textMoveX6,
                   fontSize: "15vw",
@@ -293,7 +274,7 @@ useEffect(() => {
                 className="block"
               >
                 Achievements
-              </motion.p>
+              </motion.p> */}
             </Link>
           </div>
 
