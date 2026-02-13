@@ -23,13 +23,14 @@
 }
 
 html, body {
-  Background: var(--Background);
+  background: var(--Background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, sans-serif;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior: none;
   -webkit-overscroll-behavior: none;
+  min-height: 100vh;
 }
 
 html::-webkit-scrollbar,
