@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useCallback, useState } from 'react';
-import techStackData from './data/techStackData.json';
+import techStackData from './techStackData.json';
 
 type TechItem = {
   label: string;
@@ -48,13 +48,10 @@ function TechNode({ data }: { data: NodeData }) {
 const nodeTypes = {
   frontend: TechNode,
   backend: TechNode,
-  external: TechNode,
-  ai: TechNode,
-  datainfra: TechNode,
 };
 
 // Transform JSON data into ReactFlow format
-const initialNodes = techStackData.writeflow.map((node) => ({
+const initialNodes = techStackData.itealab.map((node) => ({
   id: node.id,
   type: node.type,
   position: node.position,
@@ -66,7 +63,7 @@ const initialNodes = techStackData.writeflow.map((node) => ({
 
 const initialEdges = techStackData.edges;
 
-export default function GoBuyNodes() {
+export default function CarbonioNodes() {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
 
@@ -84,7 +81,7 @@ export default function GoBuyNodes() {
   );
 
   return (
-    <div style={{ width: 'auto', height: '80vh' }} className=''>
+    <div style={{ width: 'auto', height: '40vh' }} className=''>
       <ReactFlow
         nodes={nodes}
         edges={edges}

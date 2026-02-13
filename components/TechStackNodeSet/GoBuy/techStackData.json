@@ -1,0 +1,106 @@
+{
+  "gobuy": [
+    {
+      "id": "frontend",
+      "type": "frontend",
+      "position": { "x": 0, "y": 0 },
+      "label": "Frontend",
+      "items": [
+        {
+          "label": "Vue.js 3",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+        },
+        {
+          "label": "Vite",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg"
+        },
+        {
+          "label": "Vue Router",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+        },
+        {
+          "label": "Pinia",
+          "img": "https://pinia.vuejs.org/logo.svg"
+        },
+        {
+          "label": "Tailwind CSS",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "type": "backend",
+      "position": { "x": 250, "y": 0 },
+      "label": "Backend",
+      "items": [
+        {
+          "label": "Express.js",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+        },
+        {
+          "label": "Node.js",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "type": "database",
+      "position": { "x": 125, "y": 180 },
+      "label": "Database & Auth",
+      "items": [
+        {
+          "label": "Supabase",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+        },
+        {
+          "label": "PostgreSQL",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+        }
+      ]
+    },
+    {
+      "id": "external",
+      "type": "external",
+      "position": { "x": 375, "y": 180 },
+      "label": "External Services",
+      "items": [
+        {
+          "label": "Google OAuth",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+        },
+        {
+          "label": "FastForex API",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "frontend-backend",
+      "source": "frontend",
+      "target": "backend",
+      "type": "smoothstep"
+    },
+    {
+      "id": "backend-database",
+      "source": "backend",
+      "target": "database",
+      "type": "smoothstep"
+    },
+    {
+      "id": "frontend-database",
+      "source": "frontend",
+      "target": "database",
+      "type": "smoothstep"
+    },
+    {
+      "id": "backend-external",
+      "source": "backend",
+      "target": "external",
+      "type": "smoothstep"
+    }
+  ]
+}

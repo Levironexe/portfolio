@@ -10,6 +10,7 @@ import {
   SentinelAINodes,
   CarbonioNodes,
   GoBuyNodes,
+  ITeaLabNodes,
 } from "@/components/TechStackNodeSet";
 
 interface Project {
@@ -320,31 +321,39 @@ const page = () => {
                     <div className="">
                       <WriteFlowNodes />
                       <p className="text-neutral-500 text-center mt-2">
-                        System Architecture
+                        System Architecture Diagram
                       </p>
                     </div>
                   ) : project.name === "SentinelAI" ? (
                     <div className="">
                       <SentinelAINodes />
                       <p className="text-neutral-500 text-center mt-2">
-                        System Architecture
+                        System Architecture Diagram
                       </p>
                     </div>
                   ) : project.name === "carbonio" ? (
                     <div className="">
                       <CarbonioNodes />
                       <p className="text-neutral-500 text-center mt-2">
-                        System Architecture
+                        System Architecture Diagram
                       </p>
                     </div>
                   ) : project.name === "GoBuy" ? (
                     <div className="">
                       <GoBuyNodes />
                       <p className="text-neutral-500 text-center mt-2">
-                        System Architecture
+                        System Architecture Diagram
                       </p>
                     </div>
-                  ) : (
+                    
+                  ) : project.name === "itealab.vercel.com" ? (
+                    <div className="">
+                      <ITeaLabNodes />
+                      <p className="text-neutral-500 text-center mt-2">
+                        System Architecture Diagram
+                      </p>
+                    </div>)
+                    : (
                     ""
                   )}
                 </div>

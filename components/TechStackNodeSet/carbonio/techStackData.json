@@ -1,0 +1,110 @@
+{
+  "carbonio": [
+    {
+      "id": "frontend",
+      "type": "frontend",
+      "position": { "x": 0, "y": 0 },
+      "label": "Frontend",
+      "items": [
+        {
+          "label": "Next.js",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+        },
+        {
+          "label": "TypeScript",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        },
+        {
+          "label": "Tailwind CSS",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+        },
+        {
+          "label": "Framer Motion",
+          "img": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
+        }
+      ]
+    },
+    {
+      "id": "blockchain",
+      "type": "blockchain",
+      "position": { "x": 250, "y": 0 },
+      "label": "Blockchain",
+      "items": [
+        {
+          "label": "Solana",
+          "img": "https://cryptologos.cc/logos/solana-sol-logo.svg?v=035"
+        },
+        {
+          "label": "Anchor Framework",
+          "img": ""
+        },
+        {
+          "label": "Metaplex",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "type": "storage",
+      "position": { "x": 125, "y": 200 },
+      "label": "Storage & Database",
+      "items": [
+        {
+          "label": "Pinata (IPFS)",
+          "img": ""
+        },
+        {
+          "label": "Supabase",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+        },
+        {
+          "label": "PostgreSQL",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+        }
+      ]
+    },
+    {
+      "id": "web3",
+      "type": "web3",
+      "position": { "x": 375, "y": 200 },
+      "label": "Web3 Integration",
+      "items": [
+        {
+          "label": "Solana Wallet Adapter",
+          "img": "https://cryptologos.cc/logos/solana-sol-logo.svg?v=035"
+        },
+        {
+          "label": "WalletConnect",
+          "img": "https://avatars.githubusercontent.com/u/37784886?s=200&v=4"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "frontend-blockchain",
+      "source": "frontend",
+      "target": "blockchain",
+      "type": "smoothstep"
+    },
+    {
+      "id": "frontend-web3",
+      "source": "frontend",
+      "target": "web3",
+      "type": "smoothstep"
+    },
+    {
+      "id": "blockchain-storage",
+      "source": "blockchain",
+      "target": "storage",
+      "type": "smoothstep"
+    },
+    {
+      "id": "web3-blockchain",
+      "source": "web3",
+      "target": "blockchain",
+      "type": "smoothstep"
+    }
+  ]
+}

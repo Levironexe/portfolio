@@ -1,0 +1,44 @@
+{
+  "itealab": [
+    {
+      "id": "frontend",
+      "type": "frontend",
+      "position": { "x": 0, "y": 0 },
+      "label": "Frontend",
+      "items": [
+        {
+          "label": "Next.js",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+        },
+        {
+          "label": "TypeScript",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "type": "backend",
+      "position": { "x": 250, "y": 0 },
+      "label": "Backend & Database",
+      "items": [
+        {
+          "label": "Supabase",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+        },
+        {
+          "label": "PostgreSQL",
+          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "frontend-backend",
+      "source": "frontend",
+      "target": "backend",
+      "type": "smoothstep"
+    }
+  ]
+}

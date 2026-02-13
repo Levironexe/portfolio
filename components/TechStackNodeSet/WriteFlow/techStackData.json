@@ -7,16 +7,8 @@
       "label": "Frontend",
       "items": [
         {
-          "label": "JavaScript",
-          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-        },
-        {
           "label": "TypeScript",
           "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-        },
-        {
-          "label": "React",
-          "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
         },
         {
           "label": "Next.js",
@@ -25,6 +17,10 @@
         {
           "label": "Tailwind CSS",
           "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+        },
+        {
+          "label": "Framer Motion",
+          "img": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
         }
       ]
     },

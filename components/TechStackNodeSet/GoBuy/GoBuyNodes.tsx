@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useCallback, useState } from 'react';
-import techStackData from './data/techStackData.json';
+import techStackData from './techStackData.json';
 
 type TechItem = {
   label: string;
@@ -49,12 +49,11 @@ const nodeTypes = {
   frontend: TechNode,
   backend: TechNode,
   external: TechNode,
-  ai: TechNode,
-  datainfra: TechNode,
+  database: TechNode,
 };
 
 // Transform JSON data into ReactFlow format
-const initialNodes = techStackData.writeflow.map((node) => ({
+const initialNodes = techStackData.gobuy.map((node) => ({
   id: node.id,
   type: node.type,
   position: node.position,
@@ -66,7 +65,7 @@ const initialNodes = techStackData.writeflow.map((node) => ({
 
 const initialEdges = techStackData.edges;
 
-export default function CarbonioNodes() {
+export default function GoBuyNodes() {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
 

@@ -61,51 +61,12 @@
             "url2": "",
             "btnText2": ""
         }
-    },    
-    {
-        "name": "LongChau-PMS",
-        "description": "A management system solution for Long Chau Pharmacy",
-        "date": "2025",
-        "content": {
-            "longDescription": "A proof-of-concept full-stack pharmacy platform developed as a university project, built with Next.js, Django, and PostgreSQL, designed to mimic real-world pharmacy chain operations. It provides multi-role access (staff, pharmacists, customers, managers) with features for orders, prescriptions, inventory, deliveries, reporting, and loyalty programs, all optimized for Vietnamese business workflows.",
-            "media1":"",
-            "url1": "",
-            "media2":"",
-            "url2": ""
-        }
-    },    
-    {
-        "name": "carbonio",
-        "description": "A project for BREAKOUT Hackathon by Colosseum, 2025",
-        "date": "2025",
-        "content": {
-            "longDescription": "Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts, developed as a hackathon project for BREAKOUT Hackathon by Colosseum. It enables companies to register, upload carbon data, and undergo verification by third-party auditors, while consumers can scan QR codes to view verified footprints. Built with Next.js, TypeScript, Express, and Anchor smart contracts. Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex. By offering portals for consumers, companies, and auditors, it fosters a multi-user ecosystem that tracks and incentivizes emission reduction.",
-            "mediaSrc1": "/videos/carbonio-demo-compressed.mp4",
-            "url1": "https://carbonio.vercel.app",
-            "btnText1": "Visit website",
-            "mediaSrc2": "/videos/carbonio-pitch-compressed.mp4",
-            "url2": "https://www.youtube.com/watch?v=8x4Tx45qDmI",
-            "btnText2": "Learn more"
-        }
-    },    
-    {
-        "name": "ArtChainAI",
-        "description": "An AI-powered platform for Sui Agent Typhoon Hackathon 2025",
-        "date": "2025",
-        "content": {
-            "longDescription": "ArtChain AI is a hackathon project developed for the Sui Agent Typhoon Hackathon 2025 that combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.",
-            "mediaSrc1":"",
-            "url1": "",
-            "btnText1": "",
-            "mediaSrc2":"",
-            "url2": "",
-            "btnText2": ""
-        }
-    },    
+    },      
+    
     {
         "name": "GoBuy",
         "description": "An SPA e-commercial web app in Vue3",
-        "date": "2024",
+        "date": "2025",
         "content": {
             "longDescription": [
                 "                  GoBuy is a university project that presents a modern, multilingual marketplace built with Vue.js, Express.js, Supabase, and Tailwind CSS, designed for global accessibility with real-time language switching (English, Spanish, Vietnamese) and multi-currency support (10 currencies with live FastForex API integration).",
@@ -121,6 +82,34 @@
             "btnText2": ""
         }
     },    
+        {
+        "name": "carbonio",
+        "description": "A project for BREAKOUT Hackathon by Colosseum, 2025",
+        "date": "2025",
+        "content": {
+            "longDescription": "Carbonio is a decentralized application for recording and verifying carbon emissions on the Solana blockchain, promoting transparency and accountability in sustainability efforts, developed as a hackathon project for BREAKOUT Hackathon by Colosseum. It enables companies to register, upload carbon data, and undergo verification by third-party auditors, while consumers can scan QR codes to view verified footprints. Built with Next.js, TypeScript, Express, and Anchor smart contracts. Carbonio also uses IPFS (Pinata) and Supabase for storage and supports NFT creation via Metaplex. By offering portals for consumers, companies, and auditors, it fosters a multi-user ecosystem that tracks and incentivizes emission reduction.",
+            "mediaSrc1": "/videos/carbonio-demo-compressed.mp4",
+            "url1": "https://carbonio.vercel.app",
+            "btnText1": "Visit website",
+            "mediaSrc2": "/videos/carbonio-pitch-compressed.mp4",
+            "url2": "https://www.youtube.com/watch?v=8x4Tx45qDmI",
+            "btnText2": "Learn more"
+        }
+    },  
+     {
+        "name": "ArtChainAI",
+        "description": "An AI-powered platform for Sui Agent Typhoon Hackathon 2025",
+        "date": "2025",
+        "content": {
+            "longDescription": "ArtChain AI is a hackathon project developed for the Sui Agent Typhoon Hackathon 2025 that combines AI art generation with blockchain technology to empower artists and collectors in creating, trading, and owning unique digital artwork. Users can connect their wallets, choose from curated artistic styles, generate images using AI models, and mint NFTs on the SUI blockchain with automatic royalty distribution for contributing artists. The platform emphasizes artist-driven creation, blockchain verification, and fair compensation, while offering a gallery, studio tools, and NFT minting for seamless participation in the digital art economy. It positions itself as a future-forward ecosystem for creativity, ownership, and monetization of AI-assisted art.",
+            "mediaSrc1":"",
+            "url1": "",
+            "btnText1": "",
+            "mediaSrc2":"",
+            "url2": "",
+            "btnText2": ""
+        }
+    },   
     {
         "name": "BlockScan",
         "description": "A solution to audit Solidity smart contracts",
