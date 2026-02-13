@@ -59,7 +59,7 @@ const Page = () => {
           <div
             className={`transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-8">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl  leading-[1.35] mb-8">
               Ask about
               <div
 
