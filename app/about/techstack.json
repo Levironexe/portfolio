@@ -1,0 +1,136 @@
+{
+  "frontend": [
+    {
+      "label": "Next.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+    },
+    {
+      "label": "React",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+    },
+    {
+      "label": "Vue.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+    },
+    {
+      "label": "TypeScript",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+    },
+    {
+      "label": "Tailwind CSS",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+    },
+    {
+      "label": "Framer Motion",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg"
+    },
+    {
+      "label": "shadcn/ui",
+      "img": "https://ui.shadcn.com/apple-touch-icon.png"
+    }
+  ],
+  "backend": [
+    {
+      "label": "Node.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+    },
+    {
+      "label": "Express.js",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+    },
+    {
+      "label": "Python",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    },
+    {
+      "label": "FastAPI",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+    },
+    {
+      "label": ".NET Core",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg"
+    },
+    {
+      "label": "Firebase",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg"
+    },
+    {
+      "label": "Google OAuth",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+    },
+    {
+      "label": "Redis",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+    }
+  ],
+  "database": [
+    {
+      "label": "PostgreSQL",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+    },
+    {
+      "label": "Supabase",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+    },
+    {
+      "label": "MongoDB",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+    },
+    {
+      "label": "ChromaDB",
+      "img": "/images/chroma.webp"
+    }
+  ],
+  "ai": [
+    {
+      "label": "Claude AI",
+      "img": "https://www.anthropic.com/_next/image?url=%2Fimages%2Ficons%2Fandroid-chrome-512x512.png&w=64&q=75"
+    },
+    {
+      "label": "OpenAI",
+      "img": "https://openai.com/apple-icon.png?d110ffad1a87c75b"
+    },
+    {
+      "label": "Google Gemini",
+      "img": "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+    },
+    {
+      "label": "Amazon Bedrock",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    },
+    {
+      "label": "LangChain",
+      "img": "https://avatars.githubusercontent.com/u/126733545?s=200&v=4"
+    },
+    {
+      "label": "LangGraph",
+      "img": "https://avatars.githubusercontent.com/u/126733545?s=200&v=4"
+    },
+    {
+      "label": "MCP",
+      "img": "https://www.anthropic.com/_next/image?url=%2Fimages%2Ficons%2Fandroid-chrome-512x512.png&w=64&q=75"
+    }
+  ],
+  "devops": [
+    {
+      "label": "Docker",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+    },
+    {
+      "label": "AWS",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    },
+    {
+      "label": "Vercel",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+    },
+    {
+      "label": "Render",
+      "img": "/images/render-logo.png"
+    },
+    {
+      "label": "Git",
+      "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+    }
+  ]
+}
