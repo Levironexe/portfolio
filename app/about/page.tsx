@@ -45,10 +45,7 @@ const Page = () => {
         label: stack.label,
         img: stack.img,
       }));
-      const blockchainStack = techStackData.blockchain?.map((stack) => ({
-        label: stack.label,
-        img: stack.img,
-      })) || [];
+      
     
   const projects = ["SentinelAI", "carbonio", "WriteFlow", "GoBuy"];
   useEffect(() => {
